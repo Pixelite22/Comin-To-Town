@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://t28jpqsprpun"]
+
+[ext_resource type="Texture2D" uid="uid://jf8323e0jrfa" path="res://Art/sample_1.png" id="1_qvm8s"]
+[ext_resource type="PackedScene" uid="uid://d4hns88c3f0jf" path="res://Scenes/Santa/santa.tscn" id="2_mld8n"]
+[ext_resource type="PackedScene" uid="uid://gdptauy3x6tm" path="res://Scenes/Santa/tree.tscn" id="3_mld8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epdrh"]
+size = Vector2(731, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slore"]
+size = Vector2(345, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0mwl"]
+size = Vector2(246, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyaqc"]
+size = Vector2(115, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp6vy"]
+size = Vector2(267, 36)
+
+[node name="Test Scene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(574.5, 324.6)
+scale = Vector2(0.840293, 0.840678)
+texture = ExtResource("1_qvm8s")
+
+[node name="Test Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(324.5, 535.5)
+shape = SubResource("RectangleShape2D_epdrh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(402.5, 204)
+shape = SubResource("RectangleShape2D_slore")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(1040, 206)
+shape = SubResource("RectangleShape2D_x0mwl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(747.5, 203.5)
+shape = SubResource("RectangleShape2D_lyaqc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(1053.5, 535)
+shape = SubResource("RectangleShape2D_lp6vy")
+
+[node name="Santa" parent="." instance=ExtResource("2_mld8n")]
+position = Vector2(131, 166)
+scale = Vector2(0.25, 0.25)
+
+[node name="Tree" parent="." instance=ExtResource("3_mld8n")]
+position = Vector2(540, 439)
+scale = Vector2(0.5, 0.5)

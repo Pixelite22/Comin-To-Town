@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://gdptauy3x6tm"]
+
+[ext_resource type="Texture2D" uid="uid://cg0qctv4mn058" path="res://Art/christmas-game-assets-kit-06-removebg-preview.png" id="1_iy1q6"]
+[ext_resource type="Script" uid="uid://cpy6ja14whut0" path="res://Scenes/Santa/tree.gd" id="1_rvutp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rvutp"]
+radius = 98.0
+height = 334.0
+
+[node name="Tree" type="Area2D"]
+script = ExtResource("1_rvutp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iy1q6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rvutp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
