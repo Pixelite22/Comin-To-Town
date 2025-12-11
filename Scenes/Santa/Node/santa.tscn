@@ -85,17 +85,17 @@
 [ext_resource type="Texture2D" uid="uid://ba5soy26gd7ro" path="res://Placeholder Art/Santa Claus/Walk (11).png" id="82_mxwmu"]
 [ext_resource type="Texture2D" uid="uid://8frc1nydspvm" path="res://Placeholder Art/Santa Claus/Walk (12).png" id="83_eo2iy"]
 [ext_resource type="Texture2D" uid="uid://cxs8gpmxvyvn3" path="res://Placeholder Art/Santa Claus/Walk (13).png" id="84_6n2mu"]
-[ext_resource type="Script" uid="uid://cwjxakxfhdxis" path="res://Scenes/Santa/Code/gravity.gd" id="86_u7rxw"]
-[ext_resource type="Script" uid="uid://b18ki3f7kuddy" path="res://Scenes/Santa/Code/input.gd" id="87_u7rxw"]
-[ext_resource type="Script" uid="uid://bol4vbgegnlnq" path="res://Scenes/Santa/Code/movement.gd" id="88_q1gj0"]
-[ext_resource type="Script" uid="uid://bhi0esbfny4kf" path="res://Scenes/Santa/Code/state_machine.gd" id="89_5tef8"]
-[ext_resource type="Script" uid="uid://bremjn4f5ix8g" path="res://Scenes/Santa/idle.gd" id="90_66r16"]
-[ext_resource type="Script" uid="uid://bfdjetnvcxdwi" path="res://Scenes/Santa/walking.gd" id="91_dp74m"]
-[ext_resource type="Script" uid="uid://nowij0022s86" path="res://Scenes/Santa/Node/running.gd" id="92_3ac6x"]
-[ext_resource type="Script" uid="uid://cgisxljlr8uis" path="res://Scenes/Santa/Code/falling.gd" id="92_i6s46"]
-[ext_resource type="Script" uid="uid://dkdpvcxa866d7" path="res://Scenes/Santa/Node/sliding.gd" id="93_daj40"]
-[ext_resource type="Script" uid="uid://dqpjktj81g4do" path="res://Scenes/Santa/Node/jumping.gd" id="94_tcjk5"]
-[ext_resource type="Script" uid="uid://bhbg6j3lsd4tr" path="res://Scenes/Santa/Node/dead.gd" id="95_p08h2"]
+[ext_resource type="PackedScene" uid="uid://dw5mp22xy4hvr" path="res://Scenes/Santa/Node/features/gravity.tscn" id="86_3ac6x"]
+[ext_resource type="PackedScene" uid="uid://byoa5p2kp0t08" path="res://Scenes/Santa/Node/features/input.tscn" id="87_daj40"]
+[ext_resource type="PackedScene" uid="uid://da1b700cdors4" path="res://Scenes/Santa/Node/features/movement.tscn" id="88_tcjk5"]
+[ext_resource type="Script" uid="uid://bhi0esbfny4kf" path="res://Scenes/Santa/Code/State Codes/state_machine.gd" id="89_5tef8"]
+[ext_resource type="Script" uid="uid://bremjn4f5ix8g" path="res://Scenes/Santa/Code/State Codes/idle.gd" id="90_66r16"]
+[ext_resource type="Script" uid="uid://bfdjetnvcxdwi" path="res://Scenes/Santa/Code/State Codes/walking.gd" id="91_dp74m"]
+[ext_resource type="Script" uid="uid://nowij0022s86" path="res://Scenes/Santa/Code/State Codes/running.gd" id="92_3ac6x"]
+[ext_resource type="Script" uid="uid://cgisxljlr8uis" path="res://Scenes/Santa/Code/State Codes/falling.gd" id="92_i6s46"]
+[ext_resource type="Script" uid="uid://dkdpvcxa866d7" path="res://Scenes/Santa/Code/State Codes/sliding.gd" id="93_daj40"]
+[ext_resource type="Script" uid="uid://dqpjktj81g4do" path="res://Scenes/Santa/Code/State Codes/jumping.gd" id="94_tcjk5"]
+[ext_resource type="Script" uid="uid://bhbg6j3lsd4tr" path="res://Scenes/Santa/Code/State Codes/dead.gd" id="95_p08h2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k285x"]
 animations = [{
@@ -153,6 +153,53 @@ animations = [{
 }],
 "loop": true,
 "name": &"Dead",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_tivf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_yrblp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_velsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_37s6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_pmw27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_fxc27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_t56mr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_t56mr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_fxc27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_pmw27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_37s6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_velsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_yrblp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_tivf6")
+}],
+"loop": true,
+"name": &"Falling",
 "speed": 15.0
 }, {
 "frames": [{
@@ -386,28 +433,27 @@ animations = [{
 radius = 108.0
 height = 494.0
 
-[node name="Santa" type="CharacterBody2D" node_paths=PackedStringArray("grav", "inp", "move")]
+[node name="Santa" type="CharacterBody2D" node_paths=PackedStringArray("grav", "inp", "move", "state_machine")]
 script = ExtResource("1_0ldnr")
 grav = NodePath("Gravity")
 inp = NodePath("Input")
 move = NodePath("Movement")
+state_machine = NodePath("State Machine")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k285x")
-animation = &"Walking"
+animation = &"Falling"
+frame_progress = 0.782741
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-74, 0)
 shape = SubResource("CapsuleShape2D_ail5c")
 
-[node name="Gravity" type="Node" parent="."]
-script = ExtResource("86_u7rxw")
+[node name="Gravity" parent="." instance=ExtResource("86_3ac6x")]
 
-[node name="Input" type="Node" parent="."]
-script = ExtResource("87_u7rxw")
+[node name="Input" parent="." instance=ExtResource("87_daj40")]
 
-[node name="Movement" type="Node" parent="."]
-script = ExtResource("88_q1gj0")
+[node name="Movement" parent="." instance=ExtResource("88_tcjk5")]
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
 script = ExtResource("89_5tef8")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://da1b700cdors4"]
+
+[ext_resource type="Script" uid="uid://bol4vbgegnlnq" path="res://Scenes/Santa/Code/Features Code/movement.gd" id="1_sd6px"]
+
+[node name="Movement" type="Node"]
+script = ExtResource("1_sd6px")

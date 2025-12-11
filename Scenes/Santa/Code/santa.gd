@@ -8,6 +8,10 @@ class_name santa
 @export var state_machine: stateMachine
 
 @onready var sprite := $Sprite
+@onready var collision := $Collision
+@onready var inpnode := $Input
+@onready var gravnode := $Gravity
+@onready var movenode := $Movement
 
 #func _ready() -> void:
 #	sprite.play("Idle")

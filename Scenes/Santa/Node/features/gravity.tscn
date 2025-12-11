@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw5mp22xy4hvr"]
+
+[ext_resource type="Script" uid="uid://cwjxakxfhdxis" path="res://Scenes/Santa/Code/Features Code/gravity.gd" id="1_8cdhs"]
+
+[node name="Gravity" type="Node"]
+script = ExtResource("1_8cdhs")
