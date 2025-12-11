@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://byoa5p2kp0t08"]
+
+[ext_resource type="Script" uid="uid://b18ki3f7kuddy" path="res://Scenes/Santa/Code/Features Code/input.gd" id="1_7kkt5"]
+
+[node name="Input" type="Node"]
+script = ExtResource("1_7kkt5")
