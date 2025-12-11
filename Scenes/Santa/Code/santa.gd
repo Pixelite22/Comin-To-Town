@@ -12,10 +12,10 @@ class_name santa
 #func _ready() -> void:
 #	sprite.play("Idle")
 
-func _physics_process(_delta: float) -> void:
-	grav.handleGravity(self, _delta)
+func _physics_process(_delta: float) -> void: #every physics frame
+	grav.handleGravity(self, _delta) #Run the handle gravity function
 	
-	move.handleMovementH(self, inp.inputH, inp.sprint())
-	move.handleJump(self, inp.jump())
+	move.handleMovementH(self, inp.inputH, inp.sprint()) #run the handle horizontal movement functoin to check for attempts
+	move.handleJump(self, inp.jump()) #run jump function to check fo jump attempts
 	
-	move_and_slide()
+	move_and_slide() #move and slide magic function that does shit for stuff somehow

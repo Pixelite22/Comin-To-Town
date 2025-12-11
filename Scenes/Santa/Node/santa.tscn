@@ -1,95 +1,101 @@
-[gd_scene load_steps=93 format=3 uid="uid://d4hns88c3f0jf"]
+[gd_scene load_steps=99 format=3 uid="uid://d4hns88c3f0jf"]
 
 [ext_resource type="Script" uid="uid://bajmj4ebrkq4r" path="res://Scenes/Santa/Code/santa.gd" id="1_0ldnr"]
-[ext_resource type="Texture2D" uid="uid://chfflhnf7t1mc" path="res://Art/Santa Claus/Dead (1).png" id="1_ko0sv"]
-[ext_resource type="Texture2D" uid="uid://diua2r8ymgsni" path="res://Art/Santa Claus/Dead (2).png" id="2_cqota"]
-[ext_resource type="Texture2D" uid="uid://d11eqf0ll6leh" path="res://Art/Santa Claus/Dead (3).png" id="3_0ldnr"]
-[ext_resource type="Texture2D" uid="uid://cfue7tdyi8bh5" path="res://Art/Santa Claus/Dead (4).png" id="4_u7rxw"]
-[ext_resource type="Texture2D" uid="uid://cqyyn4ms6poxh" path="res://Art/Santa Claus/Dead (5).png" id="5_q1gj0"]
-[ext_resource type="Texture2D" uid="uid://tstym7betq55" path="res://Art/Santa Claus/Dead (6).png" id="6_5tef8"]
-[ext_resource type="Texture2D" uid="uid://dfxqmhq71tufy" path="res://Art/Santa Claus/Dead (7).png" id="7_cxfis"]
-[ext_resource type="Texture2D" uid="uid://b0gjldrmaqoh0" path="res://Art/Santa Claus/Dead (8).png" id="8_p2ka4"]
-[ext_resource type="Texture2D" uid="uid://bvk6kob50r8va" path="res://Art/Santa Claus/Dead (9).png" id="9_c48o8"]
-[ext_resource type="Texture2D" uid="uid://b5wmla7h06k7m" path="res://Art/Santa Claus/Dead (10).png" id="10_68ype"]
-[ext_resource type="Texture2D" uid="uid://00bwolpasv2" path="res://Art/Santa Claus/Dead (11).png" id="11_4khjt"]
-[ext_resource type="Texture2D" uid="uid://dg145evttymho" path="res://Art/Santa Claus/Dead (12).png" id="12_i050b"]
-[ext_resource type="Texture2D" uid="uid://r6ya1sg1s4jw" path="res://Art/Santa Claus/Dead (13).png" id="13_u2w5g"]
-[ext_resource type="Texture2D" uid="uid://dh06xltuvyhx4" path="res://Art/Santa Claus/Dead (14).png" id="14_66xji"]
-[ext_resource type="Texture2D" uid="uid://d0a32a4djopu4" path="res://Art/Santa Claus/Dead (15).png" id="15_co8s0"]
-[ext_resource type="Texture2D" uid="uid://c26al8t8x060f" path="res://Art/Santa Claus/Dead (16).png" id="16_2lw8f"]
-[ext_resource type="Texture2D" uid="uid://dndjw40wp61ph" path="res://Art/Santa Claus/Dead (17).png" id="17_nmve7"]
-[ext_resource type="Texture2D" uid="uid://dkwobujl6ahkc" path="res://Art/Santa Claus/Idle (1).png" id="18_jmap2"]
-[ext_resource type="Texture2D" uid="uid://bjn8w7620lfn0" path="res://Art/Santa Claus/Idle (2).png" id="19_yf538"]
-[ext_resource type="Texture2D" uid="uid://odb83wxupx5o" path="res://Art/Santa Claus/Idle (3).png" id="20_2s25x"]
-[ext_resource type="Texture2D" uid="uid://c56i5sfpvgk6j" path="res://Art/Santa Claus/Idle (4).png" id="21_i74be"]
-[ext_resource type="Texture2D" uid="uid://bujap8w7ty4bb" path="res://Art/Santa Claus/Idle (5).png" id="22_xtnvx"]
-[ext_resource type="Texture2D" uid="uid://dvruvda22rik4" path="res://Art/Santa Claus/Idle (6).png" id="23_ihes4"]
-[ext_resource type="Texture2D" uid="uid://dyquysnwgyf7h" path="res://Art/Santa Claus/Idle (7).png" id="24_cd5ua"]
-[ext_resource type="Texture2D" uid="uid://djibg7m2a3b64" path="res://Art/Santa Claus/Idle (8).png" id="25_i7typ"]
-[ext_resource type="Texture2D" uid="uid://cp6djoyd86so1" path="res://Art/Santa Claus/Idle (9).png" id="26_jryd0"]
-[ext_resource type="Texture2D" uid="uid://dr1v22lrpqpst" path="res://Art/Santa Claus/Idle (10).png" id="27_n0e1o"]
-[ext_resource type="Texture2D" uid="uid://c1bh6e6dplf73" path="res://Art/Santa Claus/Idle (11).png" id="28_4kpby"]
-[ext_resource type="Texture2D" uid="uid://ji3634ehjcp" path="res://Art/Santa Claus/Idle (12).png" id="29_ieqhy"]
-[ext_resource type="Texture2D" uid="uid://dvwf44ty8l3mg" path="res://Art/Santa Claus/Idle (13).png" id="30_7q0ec"]
-[ext_resource type="Texture2D" uid="uid://fowkirahuag7" path="res://Art/Santa Claus/Idle (14).png" id="31_ajtlm"]
-[ext_resource type="Texture2D" uid="uid://c0fwpcui2v7qf" path="res://Art/Santa Claus/Idle (15).png" id="32_r15e7"]
-[ext_resource type="Texture2D" uid="uid://cc6x3y3gexqun" path="res://Art/Santa Claus/Idle (16).png" id="33_wgjgf"]
-[ext_resource type="Texture2D" uid="uid://cgcm43k7wrl0p" path="res://Art/Santa Claus/Jump (1).png" id="34_xlvr8"]
-[ext_resource type="Texture2D" uid="uid://ci50562xrk28j" path="res://Art/Santa Claus/Jump (2).png" id="35_t8igw"]
-[ext_resource type="Texture2D" uid="uid://ccbdc8ondfl61" path="res://Art/Santa Claus/Jump (3).png" id="36_upi1h"]
-[ext_resource type="Texture2D" uid="uid://dc2lghquq62x0" path="res://Art/Santa Claus/Jump (4).png" id="37_060hk"]
-[ext_resource type="Texture2D" uid="uid://bk2qkx4p5tm0" path="res://Art/Santa Claus/Jump (5).png" id="38_ssdn2"]
-[ext_resource type="Texture2D" uid="uid://ddg1cix53uf63" path="res://Art/Santa Claus/Jump (6).png" id="39_tivf6"]
-[ext_resource type="Texture2D" uid="uid://ctc7tbohxpchf" path="res://Art/Santa Claus/Jump (7).png" id="40_yrblp"]
-[ext_resource type="Texture2D" uid="uid://cb3f6m3bn6sow" path="res://Art/Santa Claus/Jump (8).png" id="41_velsc"]
-[ext_resource type="Texture2D" uid="uid://b1btomv6sp0o" path="res://Art/Santa Claus/Jump (9).png" id="42_37s6m"]
-[ext_resource type="Texture2D" uid="uid://cybnau4557lu8" path="res://Art/Santa Claus/Jump (10).png" id="43_pmw27"]
-[ext_resource type="Texture2D" uid="uid://dfjxyhu5l8v0b" path="res://Art/Santa Claus/Jump (11).png" id="44_fxc27"]
-[ext_resource type="Texture2D" uid="uid://c5i3lxylotyo4" path="res://Art/Santa Claus/Jump (12).png" id="45_t56mr"]
-[ext_resource type="Texture2D" uid="uid://c1h7inoct5i4p" path="res://Art/Santa Claus/Jump (13).png" id="46_6m2w0"]
-[ext_resource type="Texture2D" uid="uid://3u88husra5db" path="res://Art/Santa Claus/Jump (14).png" id="47_budnr"]
-[ext_resource type="Texture2D" uid="uid://qr2ifv2gxl0q" path="res://Art/Santa Claus/Jump (15).png" id="48_dbs1q"]
-[ext_resource type="Texture2D" uid="uid://dume7wxpc3wmf" path="res://Art/Santa Claus/Jump (16).png" id="49_7oqyd"]
-[ext_resource type="Texture2D" uid="uid://dp3rii8t0w4iy" path="res://Art/Santa Claus/Run (1).png" id="50_du37i"]
-[ext_resource type="Texture2D" uid="uid://0q13swmeeae7" path="res://Art/Santa Claus/Run (2).png" id="51_ua8fg"]
-[ext_resource type="Texture2D" uid="uid://bul26sr50oc8t" path="res://Art/Santa Claus/Run (3).png" id="52_gt7xt"]
-[ext_resource type="Texture2D" uid="uid://cf8vmwn0qkayq" path="res://Art/Santa Claus/Run (4).png" id="53_q6ic1"]
-[ext_resource type="Texture2D" uid="uid://c7qh27ifdyapr" path="res://Art/Santa Claus/Run (5).png" id="54_wcv7o"]
-[ext_resource type="Texture2D" uid="uid://dhkstl1h51kfl" path="res://Art/Santa Claus/Run (6).png" id="55_rug6n"]
-[ext_resource type="Texture2D" uid="uid://cadlsgsaf4koi" path="res://Art/Santa Claus/Run (7).png" id="56_ixjxd"]
-[ext_resource type="Texture2D" uid="uid://djb0xof76i3ne" path="res://Art/Santa Claus/Run (8).png" id="57_sobc7"]
-[ext_resource type="Texture2D" uid="uid://ccue2cgnq5roq" path="res://Art/Santa Claus/Run (9).png" id="58_pf1li"]
-[ext_resource type="Texture2D" uid="uid://cnyl732xuigaq" path="res://Art/Santa Claus/Run (10).png" id="59_6fn0m"]
-[ext_resource type="Texture2D" uid="uid://r5bx4dlpj4fe" path="res://Art/Santa Claus/Run (11).png" id="60_tkx5l"]
-[ext_resource type="Texture2D" uid="uid://rdamsx7s4qya" path="res://Art/Santa Claus/Slide (1).png" id="61_sjnn7"]
-[ext_resource type="Texture2D" uid="uid://bajssfsvhdsbq" path="res://Art/Santa Claus/Slide (2).png" id="62_ol7w4"]
-[ext_resource type="Texture2D" uid="uid://dxxy17quj6t0s" path="res://Art/Santa Claus/Slide (3).png" id="63_rtugx"]
-[ext_resource type="Texture2D" uid="uid://by5vtnrhriy8i" path="res://Art/Santa Claus/Slide (4).png" id="64_cx8dp"]
-[ext_resource type="Texture2D" uid="uid://dwxscyddylyn1" path="res://Art/Santa Claus/Slide (5).png" id="65_1l3xp"]
-[ext_resource type="Texture2D" uid="uid://cfqob73ffp4ux" path="res://Art/Santa Claus/Slide (6).png" id="66_qaii7"]
-[ext_resource type="Texture2D" uid="uid://c1knd7d63holo" path="res://Art/Santa Claus/Slide (7).png" id="67_cl2od"]
-[ext_resource type="Texture2D" uid="uid://cbayld23d5qsw" path="res://Art/Santa Claus/Slide (8).png" id="68_m6k8s"]
-[ext_resource type="Texture2D" uid="uid://cmqlpguscw1ra" path="res://Art/Santa Claus/Slide (9).png" id="69_8i35b"]
-[ext_resource type="Texture2D" uid="uid://ckjhgvh3iwdlb" path="res://Art/Santa Claus/Slide (10).png" id="70_4gonb"]
-[ext_resource type="Texture2D" uid="uid://hywuylh0g51r" path="res://Art/Santa Claus/Slide (11).png" id="71_dqtho"]
-[ext_resource type="Texture2D" uid="uid://csoytn8jb1mn3" path="res://Art/Santa Claus/Walk (1).png" id="72_3nye6"]
-[ext_resource type="Texture2D" uid="uid://d3fpbqmi06nf6" path="res://Art/Santa Claus/Walk (2).png" id="73_tcrgr"]
-[ext_resource type="Texture2D" uid="uid://bmaa8unsb632g" path="res://Art/Santa Claus/Walk (3).png" id="74_pakye"]
-[ext_resource type="Texture2D" uid="uid://b4qxnbajrwi1u" path="res://Art/Santa Claus/Walk (4).png" id="75_v2cna"]
-[ext_resource type="Texture2D" uid="uid://do1rnghxssqol" path="res://Art/Santa Claus/Walk (5).png" id="76_aeuh6"]
-[ext_resource type="Texture2D" uid="uid://b8vmrpvgq4vuu" path="res://Art/Santa Claus/Walk (6).png" id="77_delgb"]
-[ext_resource type="Texture2D" uid="uid://c7c105nmxuj0u" path="res://Art/Santa Claus/Walk (7).png" id="78_hn3hi"]
-[ext_resource type="Texture2D" uid="uid://cwkjskrrq7xcj" path="res://Art/Santa Claus/Walk (8).png" id="79_hxixr"]
-[ext_resource type="Texture2D" uid="uid://dca26eo43han" path="res://Art/Santa Claus/Walk (9).png" id="80_krn21"]
-[ext_resource type="Texture2D" uid="uid://b3t42niuy53dl" path="res://Art/Santa Claus/Walk (10).png" id="81_uwr8y"]
-[ext_resource type="Texture2D" uid="uid://ba5soy26gd7ro" path="res://Art/Santa Claus/Walk (11).png" id="82_mxwmu"]
-[ext_resource type="Texture2D" uid="uid://8frc1nydspvm" path="res://Art/Santa Claus/Walk (12).png" id="83_eo2iy"]
-[ext_resource type="Texture2D" uid="uid://cxs8gpmxvyvn3" path="res://Art/Santa Claus/Walk (13).png" id="84_6n2mu"]
+[ext_resource type="Texture2D" uid="uid://chfflhnf7t1mc" path="res://Placeholder Art/Santa Claus/Dead (1).png" id="1_ko0sv"]
+[ext_resource type="Texture2D" uid="uid://diua2r8ymgsni" path="res://Placeholder Art/Santa Claus/Dead (2).png" id="2_cqota"]
+[ext_resource type="Texture2D" uid="uid://d11eqf0ll6leh" path="res://Placeholder Art/Santa Claus/Dead (3).png" id="3_0ldnr"]
+[ext_resource type="Texture2D" uid="uid://cfue7tdyi8bh5" path="res://Placeholder Art/Santa Claus/Dead (4).png" id="4_u7rxw"]
+[ext_resource type="Texture2D" uid="uid://cqyyn4ms6poxh" path="res://Placeholder Art/Santa Claus/Dead (5).png" id="5_q1gj0"]
+[ext_resource type="Texture2D" uid="uid://tstym7betq55" path="res://Placeholder Art/Santa Claus/Dead (6).png" id="6_5tef8"]
+[ext_resource type="Texture2D" uid="uid://dfxqmhq71tufy" path="res://Placeholder Art/Santa Claus/Dead (7).png" id="7_cxfis"]
+[ext_resource type="Texture2D" uid="uid://b0gjldrmaqoh0" path="res://Placeholder Art/Santa Claus/Dead (8).png" id="8_p2ka4"]
+[ext_resource type="Texture2D" uid="uid://bvk6kob50r8va" path="res://Placeholder Art/Santa Claus/Dead (9).png" id="9_c48o8"]
+[ext_resource type="Texture2D" uid="uid://b5wmla7h06k7m" path="res://Placeholder Art/Santa Claus/Dead (10).png" id="10_68ype"]
+[ext_resource type="Texture2D" uid="uid://00bwolpasv2" path="res://Placeholder Art/Santa Claus/Dead (11).png" id="11_4khjt"]
+[ext_resource type="Texture2D" uid="uid://dg145evttymho" path="res://Placeholder Art/Santa Claus/Dead (12).png" id="12_i050b"]
+[ext_resource type="Texture2D" uid="uid://r6ya1sg1s4jw" path="res://Placeholder Art/Santa Claus/Dead (13).png" id="13_u2w5g"]
+[ext_resource type="Texture2D" uid="uid://dh06xltuvyhx4" path="res://Placeholder Art/Santa Claus/Dead (14).png" id="14_66xji"]
+[ext_resource type="Texture2D" uid="uid://d0a32a4djopu4" path="res://Placeholder Art/Santa Claus/Dead (15).png" id="15_co8s0"]
+[ext_resource type="Texture2D" uid="uid://c26al8t8x060f" path="res://Placeholder Art/Santa Claus/Dead (16).png" id="16_2lw8f"]
+[ext_resource type="Texture2D" uid="uid://dndjw40wp61ph" path="res://Placeholder Art/Santa Claus/Dead (17).png" id="17_nmve7"]
+[ext_resource type="Texture2D" uid="uid://dkwobujl6ahkc" path="res://Placeholder Art/Santa Claus/Idle (1).png" id="18_jmap2"]
+[ext_resource type="Texture2D" uid="uid://bjn8w7620lfn0" path="res://Placeholder Art/Santa Claus/Idle (2).png" id="19_yf538"]
+[ext_resource type="Texture2D" uid="uid://odb83wxupx5o" path="res://Placeholder Art/Santa Claus/Idle (3).png" id="20_2s25x"]
+[ext_resource type="Texture2D" uid="uid://c56i5sfpvgk6j" path="res://Placeholder Art/Santa Claus/Idle (4).png" id="21_i74be"]
+[ext_resource type="Texture2D" uid="uid://bujap8w7ty4bb" path="res://Placeholder Art/Santa Claus/Idle (5).png" id="22_xtnvx"]
+[ext_resource type="Texture2D" uid="uid://dvruvda22rik4" path="res://Placeholder Art/Santa Claus/Idle (6).png" id="23_ihes4"]
+[ext_resource type="Texture2D" uid="uid://dyquysnwgyf7h" path="res://Placeholder Art/Santa Claus/Idle (7).png" id="24_cd5ua"]
+[ext_resource type="Texture2D" uid="uid://djibg7m2a3b64" path="res://Placeholder Art/Santa Claus/Idle (8).png" id="25_i7typ"]
+[ext_resource type="Texture2D" uid="uid://cp6djoyd86so1" path="res://Placeholder Art/Santa Claus/Idle (9).png" id="26_jryd0"]
+[ext_resource type="Texture2D" uid="uid://dr1v22lrpqpst" path="res://Placeholder Art/Santa Claus/Idle (10).png" id="27_n0e1o"]
+[ext_resource type="Texture2D" uid="uid://c1bh6e6dplf73" path="res://Placeholder Art/Santa Claus/Idle (11).png" id="28_4kpby"]
+[ext_resource type="Texture2D" uid="uid://ji3634ehjcp" path="res://Placeholder Art/Santa Claus/Idle (12).png" id="29_ieqhy"]
+[ext_resource type="Texture2D" uid="uid://dvwf44ty8l3mg" path="res://Placeholder Art/Santa Claus/Idle (13).png" id="30_7q0ec"]
+[ext_resource type="Texture2D" uid="uid://fowkirahuag7" path="res://Placeholder Art/Santa Claus/Idle (14).png" id="31_ajtlm"]
+[ext_resource type="Texture2D" uid="uid://c0fwpcui2v7qf" path="res://Placeholder Art/Santa Claus/Idle (15).png" id="32_r15e7"]
+[ext_resource type="Texture2D" uid="uid://cc6x3y3gexqun" path="res://Placeholder Art/Santa Claus/Idle (16).png" id="33_wgjgf"]
+[ext_resource type="Texture2D" uid="uid://cgcm43k7wrl0p" path="res://Placeholder Art/Santa Claus/Jump (1).png" id="34_xlvr8"]
+[ext_resource type="Texture2D" uid="uid://ci50562xrk28j" path="res://Placeholder Art/Santa Claus/Jump (2).png" id="35_t8igw"]
+[ext_resource type="Texture2D" uid="uid://ccbdc8ondfl61" path="res://Placeholder Art/Santa Claus/Jump (3).png" id="36_upi1h"]
+[ext_resource type="Texture2D" uid="uid://dc2lghquq62x0" path="res://Placeholder Art/Santa Claus/Jump (4).png" id="37_060hk"]
+[ext_resource type="Texture2D" uid="uid://bk2qkx4p5tm0" path="res://Placeholder Art/Santa Claus/Jump (5).png" id="38_ssdn2"]
+[ext_resource type="Texture2D" uid="uid://ddg1cix53uf63" path="res://Placeholder Art/Santa Claus/Jump (6).png" id="39_tivf6"]
+[ext_resource type="Texture2D" uid="uid://ctc7tbohxpchf" path="res://Placeholder Art/Santa Claus/Jump (7).png" id="40_yrblp"]
+[ext_resource type="Texture2D" uid="uid://cb3f6m3bn6sow" path="res://Placeholder Art/Santa Claus/Jump (8).png" id="41_velsc"]
+[ext_resource type="Texture2D" uid="uid://b1btomv6sp0o" path="res://Placeholder Art/Santa Claus/Jump (9).png" id="42_37s6m"]
+[ext_resource type="Texture2D" uid="uid://cybnau4557lu8" path="res://Placeholder Art/Santa Claus/Jump (10).png" id="43_pmw27"]
+[ext_resource type="Texture2D" uid="uid://dfjxyhu5l8v0b" path="res://Placeholder Art/Santa Claus/Jump (11).png" id="44_fxc27"]
+[ext_resource type="Texture2D" uid="uid://c5i3lxylotyo4" path="res://Placeholder Art/Santa Claus/Jump (12).png" id="45_t56mr"]
+[ext_resource type="Texture2D" uid="uid://c1h7inoct5i4p" path="res://Placeholder Art/Santa Claus/Jump (13).png" id="46_6m2w0"]
+[ext_resource type="Texture2D" uid="uid://3u88husra5db" path="res://Placeholder Art/Santa Claus/Jump (14).png" id="47_budnr"]
+[ext_resource type="Texture2D" uid="uid://qr2ifv2gxl0q" path="res://Placeholder Art/Santa Claus/Jump (15).png" id="48_dbs1q"]
+[ext_resource type="Texture2D" uid="uid://dume7wxpc3wmf" path="res://Placeholder Art/Santa Claus/Jump (16).png" id="49_7oqyd"]
+[ext_resource type="Texture2D" uid="uid://dp3rii8t0w4iy" path="res://Placeholder Art/Santa Claus/Run (1).png" id="50_du37i"]
+[ext_resource type="Texture2D" uid="uid://0q13swmeeae7" path="res://Placeholder Art/Santa Claus/Run (2).png" id="51_ua8fg"]
+[ext_resource type="Texture2D" uid="uid://bul26sr50oc8t" path="res://Placeholder Art/Santa Claus/Run (3).png" id="52_gt7xt"]
+[ext_resource type="Texture2D" uid="uid://cf8vmwn0qkayq" path="res://Placeholder Art/Santa Claus/Run (4).png" id="53_q6ic1"]
+[ext_resource type="Texture2D" uid="uid://c7qh27ifdyapr" path="res://Placeholder Art/Santa Claus/Run (5).png" id="54_wcv7o"]
+[ext_resource type="Texture2D" uid="uid://dhkstl1h51kfl" path="res://Placeholder Art/Santa Claus/Run (6).png" id="55_rug6n"]
+[ext_resource type="Texture2D" uid="uid://cadlsgsaf4koi" path="res://Placeholder Art/Santa Claus/Run (7).png" id="56_ixjxd"]
+[ext_resource type="Texture2D" uid="uid://djb0xof76i3ne" path="res://Placeholder Art/Santa Claus/Run (8).png" id="57_sobc7"]
+[ext_resource type="Texture2D" uid="uid://ccue2cgnq5roq" path="res://Placeholder Art/Santa Claus/Run (9).png" id="58_pf1li"]
+[ext_resource type="Texture2D" uid="uid://cnyl732xuigaq" path="res://Placeholder Art/Santa Claus/Run (10).png" id="59_6fn0m"]
+[ext_resource type="Texture2D" uid="uid://r5bx4dlpj4fe" path="res://Placeholder Art/Santa Claus/Run (11).png" id="60_tkx5l"]
+[ext_resource type="Texture2D" uid="uid://rdamsx7s4qya" path="res://Placeholder Art/Santa Claus/Slide (1).png" id="61_sjnn7"]
+[ext_resource type="Texture2D" uid="uid://bajssfsvhdsbq" path="res://Placeholder Art/Santa Claus/Slide (2).png" id="62_ol7w4"]
+[ext_resource type="Texture2D" uid="uid://dxxy17quj6t0s" path="res://Placeholder Art/Santa Claus/Slide (3).png" id="63_rtugx"]
+[ext_resource type="Texture2D" uid="uid://by5vtnrhriy8i" path="res://Placeholder Art/Santa Claus/Slide (4).png" id="64_cx8dp"]
+[ext_resource type="Texture2D" uid="uid://dwxscyddylyn1" path="res://Placeholder Art/Santa Claus/Slide (5).png" id="65_1l3xp"]
+[ext_resource type="Texture2D" uid="uid://cfqob73ffp4ux" path="res://Placeholder Art/Santa Claus/Slide (6).png" id="66_qaii7"]
+[ext_resource type="Texture2D" uid="uid://c1knd7d63holo" path="res://Placeholder Art/Santa Claus/Slide (7).png" id="67_cl2od"]
+[ext_resource type="Texture2D" uid="uid://cbayld23d5qsw" path="res://Placeholder Art/Santa Claus/Slide (8).png" id="68_m6k8s"]
+[ext_resource type="Texture2D" uid="uid://cmqlpguscw1ra" path="res://Placeholder Art/Santa Claus/Slide (9).png" id="69_8i35b"]
+[ext_resource type="Texture2D" uid="uid://ckjhgvh3iwdlb" path="res://Placeholder Art/Santa Claus/Slide (10).png" id="70_4gonb"]
+[ext_resource type="Texture2D" uid="uid://hywuylh0g51r" path="res://Placeholder Art/Santa Claus/Slide (11).png" id="71_dqtho"]
+[ext_resource type="Texture2D" uid="uid://csoytn8jb1mn3" path="res://Placeholder Art/Santa Claus/Walk (1).png" id="72_3nye6"]
+[ext_resource type="Texture2D" uid="uid://d3fpbqmi06nf6" path="res://Placeholder Art/Santa Claus/Walk (2).png" id="73_tcrgr"]
+[ext_resource type="Texture2D" uid="uid://bmaa8unsb632g" path="res://Placeholder Art/Santa Claus/Walk (3).png" id="74_pakye"]
+[ext_resource type="Texture2D" uid="uid://b4qxnbajrwi1u" path="res://Placeholder Art/Santa Claus/Walk (4).png" id="75_v2cna"]
+[ext_resource type="Texture2D" uid="uid://do1rnghxssqol" path="res://Placeholder Art/Santa Claus/Walk (5).png" id="76_aeuh6"]
+[ext_resource type="Texture2D" uid="uid://b8vmrpvgq4vuu" path="res://Placeholder Art/Santa Claus/Walk (6).png" id="77_delgb"]
+[ext_resource type="Texture2D" uid="uid://c7c105nmxuj0u" path="res://Placeholder Art/Santa Claus/Walk (7).png" id="78_hn3hi"]
+[ext_resource type="Texture2D" uid="uid://cwkjskrrq7xcj" path="res://Placeholder Art/Santa Claus/Walk (8).png" id="79_hxixr"]
+[ext_resource type="Texture2D" uid="uid://dca26eo43han" path="res://Placeholder Art/Santa Claus/Walk (9).png" id="80_krn21"]
+[ext_resource type="Texture2D" uid="uid://b3t42niuy53dl" path="res://Placeholder Art/Santa Claus/Walk (10).png" id="81_uwr8y"]
+[ext_resource type="Texture2D" uid="uid://ba5soy26gd7ro" path="res://Placeholder Art/Santa Claus/Walk (11).png" id="82_mxwmu"]
+[ext_resource type="Texture2D" uid="uid://8frc1nydspvm" path="res://Placeholder Art/Santa Claus/Walk (12).png" id="83_eo2iy"]
+[ext_resource type="Texture2D" uid="uid://cxs8gpmxvyvn3" path="res://Placeholder Art/Santa Claus/Walk (13).png" id="84_6n2mu"]
 [ext_resource type="Script" uid="uid://cwjxakxfhdxis" path="res://Scenes/Santa/Code/gravity.gd" id="86_u7rxw"]
 [ext_resource type="Script" uid="uid://b18ki3f7kuddy" path="res://Scenes/Santa/Code/input.gd" id="87_u7rxw"]
 [ext_resource type="Script" uid="uid://bol4vbgegnlnq" path="res://Scenes/Santa/Code/movement.gd" id="88_q1gj0"]
 [ext_resource type="Script" uid="uid://bhi0esbfny4kf" path="res://Scenes/Santa/Code/state_machine.gd" id="89_5tef8"]
-[ext_resource type="Script" uid="uid://bremjn4f5ix8g" path="res://Scenes/Santa/Node/idle.gd" id="90_66r16"]
+[ext_resource type="Script" uid="uid://bremjn4f5ix8g" path="res://Scenes/Santa/idle.gd" id="90_66r16"]
+[ext_resource type="Script" uid="uid://bfdjetnvcxdwi" path="res://Scenes/Santa/walking.gd" id="91_dp74m"]
+[ext_resource type="Script" uid="uid://nowij0022s86" path="res://Scenes/Santa/Node/running.gd" id="92_3ac6x"]
+[ext_resource type="Script" uid="uid://cgisxljlr8uis" path="res://Scenes/Santa/Code/falling.gd" id="92_i6s46"]
+[ext_resource type="Script" uid="uid://dkdpvcxa866d7" path="res://Scenes/Santa/Node/sliding.gd" id="93_daj40"]
+[ext_resource type="Script" uid="uid://dqpjktj81g4do" path="res://Scenes/Santa/Node/jumping.gd" id="94_tcjk5"]
+[ext_resource type="Script" uid="uid://bhbg6j3lsd4tr" path="res://Scenes/Santa/Node/dead.gd" id="95_p08h2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k285x"]
 animations = [{
@@ -252,7 +258,7 @@ animations = [{
 "texture": ExtResource("49_7oqyd")
 }],
 "loop": true,
-"name": &"Jump",
+"name": &"Jumping",
 "speed": 15.0
 }, {
 "frames": [{
@@ -290,7 +296,7 @@ animations = [{
 "texture": ExtResource("60_tkx5l")
 }],
 "loop": true,
-"name": &"Run",
+"name": &"Running",
 "speed": 15.0
 }, {
 "frames": [{
@@ -328,7 +334,7 @@ animations = [{
 "texture": ExtResource("71_dqtho")
 }],
 "loop": true,
-"name": &"Slide",
+"name": &"Sliding",
 "speed": 15.0
 }, {
 "frames": [{
@@ -372,7 +378,7 @@ animations = [{
 "texture": ExtResource("84_6n2mu")
 }],
 "loop": true,
-"name": &"Walk",
+"name": &"Walking",
 "speed": 15.0
 }]
 
@@ -388,8 +394,7 @@ move = NodePath("Movement")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k285x")
-animation = &"Idle"
-frame_progress = 0.386738
+animation = &"Walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-74, 0)
@@ -404,20 +409,27 @@ script = ExtResource("87_u7rxw")
 [node name="Movement" type="Node" parent="."]
 script = ExtResource("88_q1gj0")
 
-[node name="State Machine" type="Node" parent="."]
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
 script = ExtResource("89_5tef8")
+init_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="State Machine"]
 script = ExtResource("90_66r16")
 
 [node name="Walking" type="Node" parent="State Machine"]
+script = ExtResource("91_dp74m")
 
 [node name="Running" type="Node" parent="State Machine"]
+script = ExtResource("92_3ac6x")
 
 [node name="Sliding" type="Node" parent="State Machine"]
+script = ExtResource("93_daj40")
 
 [node name="Jumping" type="Node" parent="State Machine"]
+script = ExtResource("94_tcjk5")
 
-[node name="Deading" type="Node" parent="State Machine"]
+[node name="Dead" type="Node" parent="State Machine"]
+script = ExtResource("95_p08h2")
 
 [node name="Falling" type="Node" parent="State Machine"]
+script = ExtResource("92_i6s46")

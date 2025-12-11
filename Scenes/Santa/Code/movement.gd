@@ -11,9 +11,9 @@ var hammerAvailable = true
 var isJumping = false
 
 func handleMovementH(body, direction, sprint):
-	body.velocity.x = direction * speed
-	if sprint:
-		body.velocity.x *= 2
+	body.velocity.x = direction * speed #direction is an int of 1 or -1, so multiplying it by the speed sets the direction and speed
+	if sprint: #if pressing the sprint button
+		body.velocity.x *= 2 #double the velocity of the character
 
 func handleJump(body, wantToJump):
 	if wantToJump and body.is_on_floor(): #if wnat to jump is true and character is on a floor
