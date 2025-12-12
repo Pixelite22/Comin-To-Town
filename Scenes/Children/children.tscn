@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3jofnfxo1x8c"]
+
+[ext_resource type="Script" uid="uid://r0pbqs540d6j" path="res://Scenes/Children/children.gd" id="1_tp4h2"]
+[ext_resource type="Texture2D" uid="uid://b1ewubwremt4p" path="res://Placeholder Art/PC _ Computer - Undertale - Non-Playable Characters - Monster Kid.png" id="1_wefrq"]
+[ext_resource type="PackedScene" uid="uid://dw5mp22xy4hvr" path="res://Scenes/Santa/Node/features/gravity.tscn" id="2_tp4h2"]
+[ext_resource type="PackedScene" uid="uid://da1b700cdors4" path="res://Scenes/Santa/Node/features/movement.tscn" id="3_pjnr8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwfyc"]
+atlas = ExtResource("1_wefrq")
+region = Rect2(4, 83, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6id6"]
+atlas = ExtResource("1_wefrq")
+region = Rect2(28, 83, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmsb4"]
+atlas = ExtResource("1_wefrq")
+region = Rect2(52, 83, 22, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7eo6"]
+atlas = ExtResource("1_wefrq")
+region = Rect2(76, 83, 22, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fc4nu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwfyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6id6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmsb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7eo6")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wefrq"]
+radius = 27.0
+height = 82.0
+
+[node name="Children" type="CharacterBody2D" node_paths=PackedStringArray("grav", "move")]
+script = ExtResource("1_tp4h2")
+grav = NodePath("Gravity")
+move = NodePath("Movement")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_fc4nu")
+animation = &"Walking"
+frame_progress = 0.495527
+
+[node name="Collision Handling" type="Area2D" parent="."]
+
+[node name="Body Collision" type="CollisionShape2D" parent="Collision Handling"]
+shape = SubResource("CapsuleShape2D_wefrq")
+
+[node name="Vision Collision" type="CollisionPolygon2D" parent="Collision Handling"]
+position = Vector2(0, -15)
+polygon = PackedVector2Array(4, 10, 91, 55, 91, -48, 3, -7)
+
+[node name="Gravity" parent="." instance=ExtResource("2_tp4h2")]
+
+[node name="Movement" parent="." instance=ExtResource("3_pjnr8")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Collision Handling" to="." method="_on_collision_handling_body_entered"]
+[connection signal="body_exited" from="Collision Handling" to="." method="_on_collision_handling_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

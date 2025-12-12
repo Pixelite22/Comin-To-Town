@@ -7,6 +7,9 @@ class_name santa
 @export var move: movement
 @export var state_machine: stateMachine
 
+@export_subgroup("Stats")
+@export var speed = 100
+
 @onready var sprite := $Sprite
 @onready var collision := $Collision
 @onready var inpnode := $Input
@@ -19,7 +22,7 @@ class_name santa
 func _physics_process(_delta: float) -> void: #every physics frame
 	grav.handleGravity(self, _delta) #Run the handle gravity function
 	
-	move.handleMovementH(self, inp.inputH, inp.sprint()) #run the handle horizontal movement functoin to check for attempts
+	move.handleMovementH(self, inp.inputH, speed, inp.sprint()) #run the handle horizontal movement functoin to check for attempts
 	move.handleJump(self, inp.jump()) #run jump function to check fo jump attempts
 	
 	move_and_slide() #move and slide magic function that does shit for stuff somehow

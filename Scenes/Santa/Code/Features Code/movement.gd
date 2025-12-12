@@ -2,7 +2,6 @@ extends Features
 class_name movement
 
 @export_subgroup("Settings")
-@export var speed = 100
 @export var jumpVelocity = -350.0
 
 var hammerAvailable = true
@@ -10,7 +9,7 @@ var hammerAvailable = true
 
 var isJumping = false
 
-func handleMovementH(body, direction, sprint):
+func handleMovementH(body, direction, speed, sprint):
 	body.velocity.x = direction * speed #direction is an int of 1 or -1, so multiplying it by the speed sets the direction and speed
 	if sprint: #if pressing the sprint button
 		body.velocity.x *= 2 #double the velocity of the character
