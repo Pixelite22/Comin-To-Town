@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://t28jpqsprpun"]
+[gd_scene load_steps=11 format=3 uid="uid://t28jpqsprpun"]
 
+[ext_resource type="Script" uid="uid://cnlcp3jmdlfjf" path="res://Scenes/test_map.gd" id="1_4rhp3"]
 [ext_resource type="Texture2D" uid="uid://jf8323e0jrfa" path="res://Placeholder Art/sample_1.png" id="1_ep7wn"]
 [ext_resource type="PackedScene" uid="uid://d4hns88c3f0jf" path="res://Scenes/Santa/Node/santa.tscn" id="2_feddk"]
 [ext_resource type="PackedScene" uid="uid://gdptauy3x6tm" path="res://Scenes/tree.tscn" id="3_4rhp3"]
+[ext_resource type="PackedScene" uid="uid://b3jofnfxo1x8c" path="res://Scenes/Children/children.tscn" id="4_feddk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epdrh"]
 size = Vector2(731, 35)
@@ -20,11 +22,26 @@ size = Vector2(115, 59)
 size = Vector2(267, 36)
 
 [node name="Test Scene" type="Node2D"]
+script = ExtResource("1_4rhp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(574.5, 324.6)
 scale = Vector2(0.840293, 0.840678)
 texture = ExtResource("1_ep7wn")
+
+[node name="Children" parent="." instance=ExtResource("4_feddk")]
+position = Vector2(156, 477)
+
+[node name="Children2" parent="." instance=ExtResource("4_feddk")]
+position = Vector2(264, 131)
+
+[node name="Tree" parent="." instance=ExtResource("3_4rhp3")]
+position = Vector2(540, 439)
+scale = Vector2(0.5, 0.5)
+
+[node name="Santa" parent="." instance=ExtResource("2_feddk")]
+position = Vector2(132, 166)
+scale = Vector2(0.25, 0.25)
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
 
@@ -48,10 +65,10 @@ shape = SubResource("RectangleShape2D_lyaqc")
 position = Vector2(1053.5, 535)
 shape = SubResource("RectangleShape2D_lp6vy")
 
-[node name="Santa" parent="." instance=ExtResource("2_feddk")]
-position = Vector2(131, 166)
-scale = Vector2(0.25, 0.25)
-
-[node name="Tree" parent="." instance=ExtResource("3_4rhp3")]
-position = Vector2(540, 439)
-scale = Vector2(0.5, 0.5)
+[node name="Debug Info" type="Label" parent="."]
+offset_right = 221.0
+offset_bottom = 133.0
+text = "Debug Info:
+Seen By Child: 
+Reached Tree:
+Current Santa State:"
