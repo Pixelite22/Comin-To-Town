@@ -151,7 +151,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17_nmve7")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dead",
 "speed": 15.0
 }, {
@@ -433,7 +433,7 @@ animations = [{
 radius = 108.0
 height = 494.0
 
-[node name="Santa" type="CharacterBody2D" node_paths=PackedStringArray("grav", "inp", "move", "state_machine")]
+[node name="Santa" type="CharacterBody2D" node_paths=PackedStringArray("grav", "inp", "move", "state_machine") groups=["Player"]]
 script = ExtResource("1_0ldnr")
 grav = NodePath("Gravity")
 inp = NodePath("Input")
@@ -443,8 +443,7 @@ speed = 150
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k285x")
-animation = &"Falling"
-frame_progress = 0.782741
+animation = &"Dead"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-74, 0)

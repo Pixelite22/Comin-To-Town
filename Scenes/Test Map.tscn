@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://t28jpqsprpun"]
+[gd_scene load_steps=12 format=3 uid="uid://t28jpqsprpun"]
 
 [ext_resource type="Script" uid="uid://cnlcp3jmdlfjf" path="res://Scenes/test_map.gd" id="1_4rhp3"]
 [ext_resource type="Texture2D" uid="uid://jf8323e0jrfa" path="res://Placeholder Art/sample_1.png" id="1_ep7wn"]
 [ext_resource type="PackedScene" uid="uid://d4hns88c3f0jf" path="res://Scenes/Santa/Node/santa.tscn" id="2_feddk"]
 [ext_resource type="PackedScene" uid="uid://gdptauy3x6tm" path="res://Scenes/tree.tscn" id="3_4rhp3"]
 [ext_resource type="PackedScene" uid="uid://b3jofnfxo1x8c" path="res://Scenes/Children/children.tscn" id="4_feddk"]
+[ext_resource type="PackedScene" uid="uid://c5xdl1i4py1ja" path="res://Scenes/game_over_screen.tscn" id="6_g72n5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epdrh"]
 size = Vector2(731, 35)
@@ -40,7 +41,7 @@ position = Vector2(540, 439)
 scale = Vector2(0.5, 0.5)
 
 [node name="Santa" parent="." instance=ExtResource("2_feddk")]
-position = Vector2(132, 166)
+position = Vector2(66, 448)
 scale = Vector2(0.25, 0.25)
 
 [node name="Test Floor" type="StaticBody2D" parent="."]
@@ -72,3 +73,10 @@ text = "Debug Info:
 Seen By Child: 
 Reached Tree:
 Current Santa State:"
+
+[node name="Game Over Screen" parent="." instance=ExtResource("6_g72n5")]
+visible = false
+position = Vector2(574, 321)
+scale = Vector2(2.3, 2.3)
+
+[connection signal="santa_seen" from="Children" to="." method="_on_children_santa_seen"]
