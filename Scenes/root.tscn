@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://gm8asxihyg1l"]
+
+[ext_resource type="PackedScene" uid="uid://t28jpqsprpun" path="res://Scenes/Test Map.tscn" id="1_8pvmw"]
+[ext_resource type="Script" uid="uid://cc3radpglqp6f" path="res://Misc. Code/Signal Bus.gd" id="2_vnucn"]
+
+[node name="Root" type="Node"]
+
+[node name="Test Scene" parent="." instance=ExtResource("1_8pvmw")]
+
+[node name="Event Bus" type="Node" parent="."]
+script = ExtResource("2_vnucn")

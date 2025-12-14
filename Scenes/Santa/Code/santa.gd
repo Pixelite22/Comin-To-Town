@@ -9,6 +9,7 @@ class_name santa
 
 @export_subgroup("Stats")
 @export var speed = 100
+@export var health := 1
 
 @onready var sprite := $Sprite
 @onready var collision := $Collision
@@ -16,8 +17,8 @@ class_name santa
 @onready var gravnode := $Gravity
 @onready var movenode := $Movement
 
-#func _ready() -> void:
-#	sprite.play("Idle")
+func _ready() -> void:
+	SignalBus.connect("santa_seen", death)
 
 func _physics_process(_delta: float) -> void: #every physics frame
 	grav.handleGravity(self, _delta) #Run the handle gravity function
@@ -26,3 +27,9 @@ func _physics_process(_delta: float) -> void: #every physics frame
 	move.handleJump(self, inp.jump()) #run jump function to check fo jump attempts
 	
 	move_and_slide() #move and slide magic function that does shit for stuff somehow
+
+func death():
+	health -= 1
+	print("Santa Health: ", health)
+	if health <= 0:
+		state_machine.state_transition("Dead")
