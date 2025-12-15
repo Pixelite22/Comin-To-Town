@@ -19,6 +19,7 @@ signal died
 @onready var inpnode := $Input
 @onready var gravnode := $Gravity
 @onready var movenode := $Movement
+@onready var soundfx := $"Sound FX"
 
 func _ready() -> void:
 	SignalBus.connect("santa_seen", damage)

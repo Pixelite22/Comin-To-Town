@@ -4,15 +4,15 @@ signal santa_seen
 signal santa_died
 signal hit_death_barrier
 
-@onready var main := $"../Test Scene"
-@onready var game_over_screen := $"../Test Scene/Death Barrier"
-@onready var Santa := $"../Test Scene/Santa"
-@onready var children := $"../Test Scene/Children"
+@onready var main := $"../Main"
+@onready var game_over_screen := $"../Main/Death Barrier"
+@onready var Santa := $"../Main/Santa"
+@onready var children := $"../Main/Children"
 
 func _ready() -> void:
 	children.connect("santa_seen", see_santa)
 	Santa.connect("died", dead_santa)
-	game_over_screen.connect("death_barrier_entered", death_barrier)
+	game_over_screen.connect("death_barrier_entered", dead_santa)
 
 func see_santa():
 	santa_seen.emit()

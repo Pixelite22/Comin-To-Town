@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://d4hns88c3f0jf"]
+[gd_scene load_steps=100 format=3 uid="uid://d4hns88c3f0jf"]
 
 [ext_resource type="Script" uid="uid://bajmj4ebrkq4r" path="res://Scenes/Santa/Code/santa.gd" id="1_0ldnr"]
 [ext_resource type="Texture2D" uid="uid://chfflhnf7t1mc" path="res://Placeholder Art/Santa Claus/Dead (1).png" id="1_ko0sv"]
@@ -86,6 +86,7 @@
 [ext_resource type="Texture2D" uid="uid://8frc1nydspvm" path="res://Placeholder Art/Santa Claus/Walk (12).png" id="83_eo2iy"]
 [ext_resource type="Texture2D" uid="uid://cxs8gpmxvyvn3" path="res://Placeholder Art/Santa Claus/Walk (13).png" id="84_6n2mu"]
 [ext_resource type="PackedScene" uid="uid://dw5mp22xy4hvr" path="res://Scenes/Santa/Node/features/gravity.tscn" id="86_3ac6x"]
+[ext_resource type="AudioStream" uid="uid://bmp6jlr1rd22c" path="res://Sounds/Sound Effects/Ho1.mp3" id="86_daj40"]
 [ext_resource type="PackedScene" uid="uid://byoa5p2kp0t08" path="res://Scenes/Santa/Node/features/input.tscn" id="87_daj40"]
 [ext_resource type="PackedScene" uid="uid://da1b700cdors4" path="res://Scenes/Santa/Node/features/movement.tscn" id="88_tcjk5"]
 [ext_resource type="Script" uid="uid://bhi0esbfny4kf" path="res://Scenes/Santa/Code/State Codes/state_machine.gd" id="89_5tef8"]
@@ -449,6 +450,9 @@ animation = &"Dead"
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-74, 0)
 shape = SubResource("CapsuleShape2D_ail5c")
+
+[node name="Sound FX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("86_daj40")
 
 [node name="Gravity" parent="." instance=ExtResource("86_3ac6x")]
 
