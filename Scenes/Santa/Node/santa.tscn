@@ -440,6 +440,7 @@ inp = NodePath("Input")
 move = NodePath("Movement")
 state_machine = NodePath("State Machine")
 speed = 150
+health = 3
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k285x")

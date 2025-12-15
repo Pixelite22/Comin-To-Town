@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://t28jpqsprpun"]
+[gd_scene load_steps=14 format=3 uid="uid://t28jpqsprpun"]
 
 [ext_resource type="Script" uid="uid://cnlcp3jmdlfjf" path="res://Scenes/test_map.gd" id="1_4rhp3"]
 [ext_resource type="Texture2D" uid="uid://jf8323e0jrfa" path="res://Placeholder Art/sample_1.png" id="1_ep7wn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://gdptauy3x6tm" path="res://Scenes/tree.tscn" id="3_4rhp3"]
 [ext_resource type="PackedScene" uid="uid://b3jofnfxo1x8c" path="res://Scenes/Children/children.tscn" id="4_feddk"]
 [ext_resource type="PackedScene" uid="uid://c5xdl1i4py1ja" path="res://Scenes/game_over_screen.tscn" id="6_g72n5"]
+[ext_resource type="Script" uid="uid://bi6olknmbwttv" path="res://Scenes/death_barrier.gd" id="7_adxf4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epdrh"]
 size = Vector2(731, 35)
@@ -22,6 +23,9 @@ size = Vector2(115, 59)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lp6vy"]
 size = Vector2(267, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ccry"]
+size = Vector2(1861, 26)
+
 [node name="Test Scene" type="Node2D"]
 script = ExtResource("1_4rhp3")
 
@@ -34,7 +38,7 @@ texture = ExtResource("1_ep7wn")
 position = Vector2(156, 477)
 
 [node name="Children2" parent="." instance=ExtResource("4_feddk")]
-position = Vector2(264, 131)
+position = Vector2(264, 133)
 
 [node name="Tree" parent="." instance=ExtResource("3_4rhp3")]
 position = Vector2(540, 439)
@@ -66,6 +70,11 @@ shape = SubResource("RectangleShape2D_lyaqc")
 position = Vector2(1053.5, 535)
 shape = SubResource("RectangleShape2D_lp6vy")
 
+[node name="Game Over Screen" parent="." instance=ExtResource("6_g72n5")]
+visible = false
+position = Vector2(574, 321)
+scale = Vector2(2.3, 2.3)
+
 [node name="Debug Info" type="Label" parent="."]
 offset_right = 221.0
 offset_bottom = 133.0
@@ -74,9 +83,14 @@ Seen By Child:
 Reached Tree:
 Current Santa State:"
 
-[node name="Game Over Screen" parent="." instance=ExtResource("6_g72n5")]
-visible = false
-position = Vector2(574, 321)
-scale = Vector2(2.3, 2.3)
+[node name="Death Barrier" type="Area2D" parent="."]
+position = Vector2(549, 650)
+script = ExtResource("7_adxf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death Barrier"]
+position = Vector2(7.5, 8)
+shape = SubResource("RectangleShape2D_8ccry")
 
 [connection signal="santa_seen" from="Children" to="." method="_on_children_santa_seen"]
+[connection signal="body_entered" from="Death Barrier" to="." method="_on_death_barrier_body_entered"]
+[connection signal="body_entered" from="Death Barrier" to="Death Barrier" method="_on_body_entered"]

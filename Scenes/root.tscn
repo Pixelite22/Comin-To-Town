@@ -9,3 +9,5 @@
 
 [node name="Event Bus" type="Node" parent="."]
 script = ExtResource("2_vnucn")
+
+[connection signal="santa_died" from="Event Bus" to="Test Scene" method="_on_event_bus_santa_died"]

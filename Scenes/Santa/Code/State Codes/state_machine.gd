@@ -29,7 +29,8 @@ func state_transition(target: String, data: Dictionary = {}):
 	if not has_node(target): #if the target isn't a node
 		printerr(owner.name + ": Trying to transition to state " + target + " but it doesn't exist.") #print error showing that it isnt a node
 		return #return early
-
+	
+	#if target == str(state):
 	var prev_state := state.name #initialize previous state variable
 	state.exit() #exit current state
 	state = get_node(target) as State #make current state target, assuming it is a node and of class State

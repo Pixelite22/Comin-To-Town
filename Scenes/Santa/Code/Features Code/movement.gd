@@ -2,7 +2,7 @@ extends Features
 class_name movement
 
 @export_subgroup("Settings")
-@export var jumpVelocity = -350.0
+@export var jumpVelocity = -500.0
 
 var hammerAvailable = true
 #@onready var timer = $Timer
