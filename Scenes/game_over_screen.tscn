@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://c5xdl1i4py1ja"]
+[gd_scene load_steps=15 format=3 uid="uid://c5xdl1i4py1ja"]
 
 [ext_resource type="Texture2D" uid="uid://bj34k8na25oyx" path="res://Placeholder Art/Game Over Background/GameOverPlaceholderBackground-ezgif.com-gif-to-sprite-converter.png" id="1_0gua7"]
+[ext_resource type="Script" uid="uid://dmnv560a8qxvg" path="res://Scenes/game_over_screen.gd" id="1_jb6in"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb6in"]
 atlas = ExtResource("1_0gua7")
@@ -88,6 +89,7 @@ animations = [{
 }]
 
 [node name="Game Over Screen" type="Node2D"]
+script = ExtResource("1_jb6in")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_twso6")
