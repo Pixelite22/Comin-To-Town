@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://c5xdl1i4py1ja"]
+
+[ext_resource type="Texture2D" uid="uid://bj34k8na25oyx" path="res://Placeholder Art/Game Over Background/GameOverPlaceholderBackground-ezgif.com-gif-to-sprite-converter.png" id="1_0gua7"]
+[ext_resource type="Script" uid="uid://dmnv560a8qxvg" path="res://Scenes/Screens/game_over_screen.gd" id="1_jb6in"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb6in"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(0, 0, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8man"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(500, 0, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk8k2"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(1000, 0, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5yba"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(1500, 0, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ladg1"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(2000, 0, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un84n"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(0, 279, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t0r8"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(500, 279, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gi6v"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(1000, 279, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2a8ct"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(1500, 279, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4wbn"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(2000, 279, 500, 279)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydehj"]
+atlas = ExtResource("1_0gua7")
+region = Rect2(0, 558, 500, 279)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twso6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb6in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8man")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk8k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5yba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ladg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un84n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t0r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gi6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2a8ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r4wbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydehj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Game Over Screen" type="Node2D"]
+script = ExtResource("1_jb6in")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_twso6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -217.0
+offset_top = -76.0
+offset_right = 178.0
+offset_bottom = 37.0
+theme_override_colors/font_shadow_color = Color(0.85098, 0, 0, 1)
+theme_override_font_sizes/font_size = 73
+text = "GAME OVER"

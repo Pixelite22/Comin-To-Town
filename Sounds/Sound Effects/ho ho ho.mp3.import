@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m3t2hb5xoodj"
+path="res://.godot/imported/ho ho ho.mp3-3323090735fbf38cf5e53feb571ec863.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Sound Effects/ho ho ho.mp3"
+dest_files=["res://.godot/imported/ho ho ho.mp3-3323090735fbf38cf5e53feb571ec863.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

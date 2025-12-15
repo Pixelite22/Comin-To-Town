@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba7h14gluh4nt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epdrh"]
+size = Vector2(731, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slore"]
+size = Vector2(345, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0mwl"]
+size = Vector2(246, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyaqc"]
+size = Vector2(115, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lp6vy"]
+size = Vector2(267, 36)
+
+[node name="Test Map" type="Node2D"]
+
+[node name="Test Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(324.5, 535.5)
+shape = SubResource("RectangleShape2D_epdrh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(402.5, 204)
+shape = SubResource("RectangleShape2D_slore")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(1040, 206)
+shape = SubResource("RectangleShape2D_x0mwl")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(747.5, 203.5)
+shape = SubResource("RectangleShape2D_lyaqc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Test Floor"]
+position = Vector2(1053.5, 535)
+shape = SubResource("RectangleShape2D_lp6vy")
