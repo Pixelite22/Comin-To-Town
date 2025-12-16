@@ -7,7 +7,7 @@
 
 [node name="Main" parent="." instance=ExtResource("1_8pvmw")]
 
-[node name="Event Bus" type="Node" parent="."]
+[node name="Signal Bus" type="Node" parent="."]
 script = ExtResource("2_vnucn")
 
-[connection signal="santa_died" from="Event Bus" to="Main" method="_on_event_bus_santa_died"]
+[connection signal="santa_died" from="Signal Bus" to="Main" method="_on_event_bus_santa_died"]

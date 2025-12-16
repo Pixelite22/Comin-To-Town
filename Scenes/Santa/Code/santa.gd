@@ -20,9 +20,12 @@ signal died
 @onready var gravnode := $Gravity
 @onready var movenode := $Movement
 @onready var soundfx := $"Sound FX"
+@onready var camera := $Camera2D
 
 func _ready() -> void:
 	SignalBus.connect("santa_seen", damage)
+	SignalBus.connect("game_unpaused", game_unpaused)
+	
 
 func _physics_process(_delta: float) -> void: #every physics frame
 	grav.handleGravity(self, _delta) #Run the handle gravity function
@@ -40,3 +43,10 @@ func damage():
 			state_machine.state_transition("Dead")
 			died.emit()
 			dead_flg = true
+
+
+func _on_main_game_paused() -> void:
+	camera.enabled = false
+
+func game_unpaused():
+	camera.enabled = true

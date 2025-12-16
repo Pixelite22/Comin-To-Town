@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://d4hns88c3f0jf"]
+[gd_scene load_steps=101 format=3 uid="uid://d4hns88c3f0jf"]
 
 [ext_resource type="Script" uid="uid://bajmj4ebrkq4r" path="res://Scenes/Santa/Code/santa.gd" id="1_0ldnr"]
 [ext_resource type="Texture2D" uid="uid://chfflhnf7t1mc" path="res://Placeholder Art/Santa Claus/Dead (1).png" id="1_ko0sv"]
@@ -97,6 +97,7 @@
 [ext_resource type="Script" uid="uid://dkdpvcxa866d7" path="res://Scenes/Santa/Code/State Codes/sliding.gd" id="93_daj40"]
 [ext_resource type="Script" uid="uid://dqpjktj81g4do" path="res://Scenes/Santa/Code/State Codes/jumping.gd" id="94_tcjk5"]
 [ext_resource type="Script" uid="uid://bhbg6j3lsd4tr" path="res://Scenes/Santa/Code/State Codes/dead.gd" id="95_p08h2"]
+[ext_resource type="PackedScene" uid="uid://c5xdl1i4py1ja" path="res://Scenes/Screens/game_over_screen.tscn" id="98_tcjk5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k285x"]
 animations = [{
@@ -484,3 +485,9 @@ script = ExtResource("95_p08h2")
 
 [node name="Falling" type="Node" parent="State Machine"]
 script = ExtResource("92_i6s46")
+
+[node name="Game Over Screen" parent="." instance=ExtResource("98_tcjk5")]
+visible = false
+scale = Vector2(9.28, 9.28)
+
+[node name="Camera2D" type="Camera2D" parent="."]
