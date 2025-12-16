@@ -6,15 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://gdptauy3x6tm" path="res://Scenes/Maps/Map Parts/tree.tscn" id="3_4rhp3"]
 [ext_resource type="PackedScene" uid="uid://b3jofnfxo1x8c" path="res://Scenes/Children/children.tscn" id="4_feddk"]
 [ext_resource type="PackedScene" uid="uid://ba7h14gluh4nt" path="res://Scenes/Maps/test_map.tscn" id="6_344ge"]
-[ext_resource type="PackedScene" uid="uid://c5xdl1i4py1ja" path="res://Scenes/Screens/game_over_screen.tscn" id="6_g72n5"]
 [ext_resource type="Script" uid="uid://bi6olknmbwttv" path="res://Scenes/Maps/Map Parts/death_barrier.gd" id="7_adxf4"]
 [ext_resource type="AudioStream" uid="uid://oc1pqg0hciu2" path="res://Sounds/Background Music/Marshmallow World - No Vocals.mp3" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://bqdtdeiu6xsmu" path="res://Scenes/Screens/pause_menu.tscn" id="10_d1ilt"]
 [ext_resource type="Script" uid="uid://bqje4226ernhu" path="res://Scenes/background_music.gd" id="10_hptm8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ccry"]
 size = Vector2(1861, 26)
 
 [node name="Main" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_4rhp3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -38,10 +39,11 @@ scale = Vector2(0.25, 0.25)
 
 [node name="Test Map" parent="." instance=ExtResource("6_344ge")]
 
-[node name="Game Over Screen" parent="." instance=ExtResource("6_g72n5")]
+[node name="Pause Menu" parent="." instance=ExtResource("10_d1ilt")]
+process_mode = 2
 visible = false
-position = Vector2(574, 321)
-scale = Vector2(2.3, 2.3)
+position = Vector2(-439, -214)
+scale = Vector2(1.5, 1.5)
 
 [node name="Debug Info" type="Label" parent="."]
 offset_right = 221.0
@@ -66,6 +68,10 @@ autoplay = true
 parameters/looping = true
 script = ExtResource("10_hptm8")
 
+[connection signal="game_paused" from="." to="." method="_on_game_paused"]
+[connection signal="game_paused" from="." to="Santa" method="_on_main_game_paused"]
+[connection signal="game_paused" from="." to="Pause Menu" method="_on_main_game_paused"]
 [connection signal="santa_seen" from="Children" to="." method="_on_children_santa_seen"]
+[connection signal="game_unpaused" from="Pause Menu" to="." method="_on_pause_menu_game_unpaused"]
 [connection signal="body_entered" from="Death Barrier" to="." method="_on_death_barrier_body_entered"]
 [connection signal="body_entered" from="Death Barrier" to="Death Barrier" method="_on_body_entered"]
