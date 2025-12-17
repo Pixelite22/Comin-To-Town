@@ -491,3 +491,4 @@ visible = false
 scale = Vector2(9.28, 9.28)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false

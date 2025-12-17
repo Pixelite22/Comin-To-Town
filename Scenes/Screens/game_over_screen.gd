@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	SignalBus.santa_died.connect(make_screen_appear)
-	SignalBus.hit_death_barrier.connect(make_screen_appear)
+	
 
 func make_screen_appear():
 	await get_tree().create_timer(1.0).timeout

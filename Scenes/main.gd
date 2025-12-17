@@ -8,19 +8,22 @@ signal game_paused
 @onready var debug := $"Debug Info"
 @onready var game_over_screen := $"Game Over Screen"
 @onready var pause_menu := $"Pause Menu"
+@onready var main_menu := $"Main Menu"
 #@onready var EBus := $"../Event Bus"
 
 var pause_menu_enabled := false
+var pausable := true
+
+func _ready() -> void:
+	main_menu.camera.enabled = true
+	get_tree().paused = true
+
 
 func _process(delta: float) -> void:
 	debug.text = "Debug Info: \nSeen By Child: " + str(children.see_santa) + "\nReached Tree: " + str(tree.tree_reached) + "\nCurrent Santa State: " + str(Santa.state_machine.state.name) + "\nSanta's Health: " + str(Santa.health)
-	if Input.is_action_pressed("Pause") and not pause_menu_enabled:
+	if Input.is_action_pressed("Pause") and not pause_menu_enabled and pausable:
 		game_paused.emit()
 		pause_menu_enabled == true
-
-
-func _on_children_santa_seen() -> void:
-	print("Santa Seen Signal Recieved")
 
 func _on_game_paused() -> void:
 	pause_menu.show()
@@ -33,3 +36,10 @@ func _on_game_paused() -> void:
 func _on_pause_menu_game_unpaused() -> void:
 	pause_menu.hide()
 	get_tree().paused = false
+
+func _on_main_menu_play_button_pressed() -> void:
+	#main_menu.hide()
+	get_tree().paused = false
+
+func _on_santa_died() -> void:
+	pausable = false

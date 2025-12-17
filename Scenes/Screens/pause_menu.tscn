@@ -67,6 +67,7 @@ vertical_alignment = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 324)
 scale = Vector2(1.5, 1.5)
+enabled = false
 
 [connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
