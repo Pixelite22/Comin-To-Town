@@ -24,8 +24,9 @@ signal died
 
 func _ready() -> void:
 	SignalBus.connect("santa_seen", damage)
-	SignalBus.connect("game_unpaused", game_unpaused)
-	
+	SignalBus.connect("game_unpaused", game_start_resume)
+	SignalBus.connect("play_button_pressed", game_start_resume)
+	SignalBus.connect("hit_death_barrier", death_handling)
 
 func _physics_process(_delta: float) -> void: #every physics frame
 	grav.handleGravity(self, _delta) #Run the handle gravity function
@@ -41,12 +42,17 @@ func damage():
 		print("Santa Health: ", health)
 		if health <= 0:
 			state_machine.state_transition("Dead")
-			died.emit()
-			dead_flg = true
+			death_handling()
+
+func death_handling():
+	died.emit()
+	dead_flg = true
 
 
 func _on_main_game_paused() -> void:
 	camera.enabled = false
+	print("Player Camera Enabled: ", camera.enabled)
 
-func game_unpaused():
+func game_start_resume():
 	camera.enabled = true
+	print("Player Camera Enabled: ", camera.enabled)

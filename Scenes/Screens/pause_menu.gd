@@ -9,6 +9,10 @@ signal game_unpaused
 
 var unpauseable : bool = false
 
+#func _ready() -> void:
+#	SignalBus.connect("santa_died", disable_pause)
+#	SignalBus.connect("hit_death_barrier", disable_pause)
+
 #func _process(delta: float) -> void:
 #	if Input.is_action_pressed("Unpause") and unpauseable:
 #		unpause()
@@ -21,7 +25,11 @@ func _on_main_game_paused() -> void:
 func unpause():
 	game_unpaused.emit()
 	camera.enabled = false
-	unpauseable = false
+	print("Pause Menu Camera Enabled: ", camera.enabled)
+	disable_pause()
+
+func disable_pause():
+	unpauseable = true
 
 func _on_resume_pressed() -> void:
 	unpause()

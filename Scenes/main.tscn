@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://t28jpqsprpun"]
 
 [ext_resource type="Script" uid="uid://cnlcp3jmdlfjf" path="res://Scenes/main.gd" id="1_4rhp3"]
-[ext_resource type="Texture2D" uid="uid://jf8323e0jrfa" path="res://Placeholder Art/sample_1.png" id="1_ep7wn"]
 [ext_resource type="PackedScene" uid="uid://d4hns88c3f0jf" path="res://Scenes/Santa/Node/santa.tscn" id="2_feddk"]
 [ext_resource type="PackedScene" uid="uid://gdptauy3x6tm" path="res://Scenes/Maps/Map Parts/tree.tscn" id="3_4rhp3"]
 [ext_resource type="PackedScene" uid="uid://b3jofnfxo1x8c" path="res://Scenes/Children/children.tscn" id="4_feddk"]
 [ext_resource type="PackedScene" uid="uid://ba7h14gluh4nt" path="res://Scenes/Maps/test_map.tscn" id="6_344ge"]
 [ext_resource type="Script" uid="uid://bi6olknmbwttv" path="res://Scenes/Maps/Map Parts/death_barrier.gd" id="7_adxf4"]
 [ext_resource type="AudioStream" uid="uid://oc1pqg0hciu2" path="res://Sounds/Background Music/Marshmallow World - No Vocals.mp3" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://btkl6v7g8v6j7" path="res://main_menu.tscn" id="10_6iyac"]
 [ext_resource type="PackedScene" uid="uid://bqdtdeiu6xsmu" path="res://Scenes/Screens/pause_menu.tscn" id="10_d1ilt"]
 [ext_resource type="Script" uid="uid://bqje4226ernhu" path="res://Scenes/background_music.gd" id="10_hptm8"]
 
@@ -18,10 +18,7 @@ size = Vector2(1861, 26)
 process_mode = 1
 script = ExtResource("1_4rhp3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(574.5, 324.6)
-scale = Vector2(0.840293, 0.840678)
-texture = ExtResource("1_ep7wn")
+[node name="Test Map" parent="." instance=ExtResource("6_344ge")]
 
 [node name="Children" parent="." instance=ExtResource("4_feddk")]
 position = Vector2(935, 475)
@@ -36,8 +33,6 @@ scale = Vector2(0.5, 0.5)
 [node name="Santa" parent="." instance=ExtResource("2_feddk")]
 position = Vector2(66, 448)
 scale = Vector2(0.25, 0.25)
-
-[node name="Test Map" parent="." instance=ExtResource("6_344ge")]
 
 [node name="Pause Menu" parent="." instance=ExtResource("10_d1ilt")]
 process_mode = 2
@@ -68,10 +63,14 @@ autoplay = true
 parameters/looping = true
 script = ExtResource("10_hptm8")
 
+[node name="Main Menu" parent="." instance=ExtResource("10_6iyac")]
+
 [connection signal="game_paused" from="." to="." method="_on_game_paused"]
 [connection signal="game_paused" from="." to="Santa" method="_on_main_game_paused"]
 [connection signal="game_paused" from="." to="Pause Menu" method="_on_main_game_paused"]
 [connection signal="santa_seen" from="Children" to="." method="_on_children_santa_seen"]
+[connection signal="died" from="Santa" to="." method="_on_santa_died"]
 [connection signal="game_unpaused" from="Pause Menu" to="." method="_on_pause_menu_game_unpaused"]
 [connection signal="body_entered" from="Death Barrier" to="." method="_on_death_barrier_body_entered"]
 [connection signal="body_entered" from="Death Barrier" to="Death Barrier" method="_on_body_entered"]
+[connection signal="play_button_pressed" from="Main Menu" to="." method="_on_main_menu_play_button_pressed"]
