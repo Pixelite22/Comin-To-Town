@@ -15,7 +15,12 @@ func handleMovementH(body, direction, speed, sprint):
 		body.velocity.x *= 2 #double the velocity of the character
 
 func handleJump(body, wantToJump):
-	if wantToJump and body.is_on_floor(): #if wnat to jump is true and character is on a floor
+	if wantToJump and body.jump_ctr > 0: #body.is_on_floor(): #if wnat to jump is true and character is on a floor
 		body.velocity.y = jumpVelocity #jump at jump velocity
 		
 		isJumping = body.velocity.y < 0 and not body.is_on_floor() #Sets isJumping to true when velocity is less then 0 and the character is not detected as on the floor.
+
+func handleGlide(body, holdingGlide, ableToGlide):
+	if holdingGlide and not body.is_on_floor() and ableToGlide:
+		if body.velocity.y >= 0:
+			return true

@@ -13,3 +13,12 @@ func physics_update(_delta): #Every physics frame/tick check for these condition
 			state_ended.emit(WALKING)
 		else:
 			state_ended.emit(IDLE)
+	
+	if player.velocity.y < 0 and player.jump_ctr > 0 and not player.is_on_floor():
+		state_ended.emit(JUMPING)
+	
+	if not player.is_on_floor():
+		if player.velocity.y < 0 and player.jump_ctr > 0 and Input.is_action_just_pressed("Jump"):
+			state_ended.emit(JUMPING)
+		if Input.is_action_pressed("Jump") and player.glide and player.velocity.y > 0 and player.times_jumped == player.jump_max:
+			state_ended.emit(GLIDING)

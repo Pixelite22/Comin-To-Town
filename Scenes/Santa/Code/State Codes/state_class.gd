@@ -5,7 +5,6 @@ class_name State
 
 signal state_ended(next_state: String, data: Dictionary)
 
-
 #Called on entering the state
 func enter(prev_state: String, data := {}) -> void:
 	pass

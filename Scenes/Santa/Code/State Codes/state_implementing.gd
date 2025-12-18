@@ -8,6 +8,7 @@ const RUNNING : String = "Running"
 const SLIDING : String = "Sliding"
 const JUMPING : String = "Jumping"
 const FALLING : String = "Falling"
+const GLIDING : String = "Gliding"
 const DEAD : String = "Dead"
 
 var player: santa
