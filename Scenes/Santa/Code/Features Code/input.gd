@@ -9,6 +9,12 @@ func _process(_delta: float) -> void:
 func jump():
 	return Input.is_action_just_pressed("Jump")
 
+func glide(player: CharacterBody2D):
+	if player.times_jumped == player.jump_max:
+		return Input.is_action_pressed("Jump")
+	else:
+		return false
+
 func slide():
 	return Input.is_action_just_pressed("Slide")
 

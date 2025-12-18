@@ -766,8 +766,8 @@ animation = &"Jump End"
 position = Vector2(-80, 0)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_ux18n")
-animation = &"Inactive"
-autoplay = "Inactive"
+animation = &"Active"
+frame_progress = 0.614744
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-74, 0)
@@ -798,11 +798,11 @@ script = ExtResource("92_3ac6x")
 [node name="Sliding" type="Node" parent="State Machine"]
 script = ExtResource("93_daj40")
 
-[node name="Dead" type="Node" parent="State Machine"]
-script = ExtResource("95_p08h2")
-
 [node name="Jumping" type="Node" parent="State Machine"]
 script = ExtResource("94_tcjk5")
+
+[node name="Dead" type="Node" parent="State Machine"]
+script = ExtResource("95_p08h2")
 
 [node name="Falling" type="Node" parent="State Machine"]
 script = ExtResource("92_i6s46")

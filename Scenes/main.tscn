@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://t28jpqsprpun"]
+[gd_scene load_steps=13 format=3 uid="uid://t28jpqsprpun"]
 
 [ext_resource type="Script" uid="uid://cnlcp3jmdlfjf" path="res://Scenes/main.gd" id="1_4rhp3"]
 [ext_resource type="PackedScene" uid="uid://d4hns88c3f0jf" path="res://Scenes/Santa/Node/santa.tscn" id="2_feddk"]
 [ext_resource type="PackedScene" uid="uid://gdptauy3x6tm" path="res://Scenes/Maps/Map Parts/tree.tscn" id="3_4rhp3"]
+[ext_resource type="PackedScene" uid="uid://cup8dqrpy6esv" path="res://Scenes/cookies_and_milk.tscn" id="3_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b3jofnfxo1x8c" path="res://Scenes/Children/children.tscn" id="4_feddk"]
 [ext_resource type="PackedScene" uid="uid://ba7h14gluh4nt" path="res://Scenes/Maps/test_map.tscn" id="6_344ge"]
 [ext_resource type="Script" uid="uid://bi6olknmbwttv" path="res://Scenes/Maps/Map Parts/death_barrier.gd" id="7_adxf4"]
@@ -20,11 +21,17 @@ script = ExtResource("1_4rhp3")
 
 [node name="Test Map" parent="." instance=ExtResource("6_344ge")]
 
+[node name="Cookies and Milk" parent="." instance=ExtResource("3_d1ilt")]
+position = Vector2(55, 165)
+
+[node name="Cookies and Milk2" parent="." instance=ExtResource("3_d1ilt")]
+position = Vector2(1019, 475)
+
 [node name="Children" parent="." instance=ExtResource("4_feddk")]
 position = Vector2(935, 475)
 
 [node name="Children2" parent="." instance=ExtResource("4_feddk")]
-position = Vector2(264, 133)
+position = Vector2(280, 128)
 
 [node name="Tree" parent="." instance=ExtResource("3_4rhp3")]
 position = Vector2(540, 439)
@@ -39,14 +46,6 @@ process_mode = 2
 visible = false
 position = Vector2(-439, -214)
 scale = Vector2(1.5, 1.5)
-
-[node name="Debug Info" type="Label" parent="."]
-offset_right = 221.0
-offset_bottom = 133.0
-text = "Debug Info:
-Seen By Child: 
-Reached Tree:
-Current Santa State:"
 
 [node name="Death Barrier" type="Area2D" parent="."]
 position = Vector2(549, 650)
@@ -64,11 +63,13 @@ parameters/looping = true
 script = ExtResource("10_hptm8")
 
 [node name="Main Menu" parent="." instance=ExtResource("10_6iyac")]
+visible = false
 
 [connection signal="game_paused" from="." to="." method="_on_game_paused"]
 [connection signal="game_paused" from="." to="Santa" method="_on_main_game_paused"]
 [connection signal="game_paused" from="." to="Pause Menu" method="_on_main_game_paused"]
 [connection signal="santa_seen" from="Children" to="." method="_on_children_santa_seen"]
+[connection signal="santa_seen" from="Children2" to="." method="_on_children_santa_seen"]
 [connection signal="died" from="Santa" to="." method="_on_santa_died"]
 [connection signal="game_unpaused" from="Pause Menu" to="." method="_on_pause_menu_game_unpaused"]
 [connection signal="body_entered" from="Death Barrier" to="." method="_on_death_barrier_body_entered"]
