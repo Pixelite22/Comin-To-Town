@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://btkl6v7g8v6j7"]
+
+[ext_resource type="Texture2D" uid="uid://brgptrolgur3" path="res://Placeholder Art/Main Menu Art/Rankin and Bass North Pole.jpg" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://wak6c7yvusui" path="res://Scenes/Screens/main_menu.gd" id="1_7vrkn"]
+
+[node name="Main Menu" type="Node2D"]
+process_mode = 2
+script = ExtResource("1_7vrkn")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -4.0
+offset_top = -63.0
+offset_right = 1222.0
+offset_bottom = 846.0
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("1_06t4h")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 376.0
+offset_top = 71.0
+offset_right = 844.0
+offset_bottom = 147.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "Comin' To Town!!!"
+
+[node name="Play" type="Button" parent="."]
+offset_left = 500.0
+offset_top = 265.0
+offset_right = 699.0
+offset_bottom = 334.0
+text = "Start!"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 505.0
+offset_top = 391.0
+offset_right = 700.0
+offset_bottom = 461.0
+text = "Quit!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

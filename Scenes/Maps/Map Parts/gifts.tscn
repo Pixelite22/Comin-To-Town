@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://y60pgkuie5ok"]
+
+[ext_resource type="Texture2D" uid="uid://b4vk18c3tgt5d" path="res://Placeholder Art/Items and Level Elements/present-gift-box-reward-full.png" id="1_ke4j7"]
+
+[node name="Gifts" type="Sprite2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ke4j7")

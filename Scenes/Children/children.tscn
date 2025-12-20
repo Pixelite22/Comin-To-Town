@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b3jofnfxo1x8c"]
 
 [ext_resource type="Script" uid="uid://r0pbqs540d6j" path="res://Scenes/Children/children.gd" id="1_tp4h2"]
-[ext_resource type="Texture2D" uid="uid://b1ewubwremt4p" path="res://Placeholder Art/PC _ Computer - Undertale - Non-Playable Characters - Monster Kid.png" id="1_wefrq"]
+[ext_resource type="Texture2D" uid="uid://b1ewubwremt4p" path="res://Placeholder Art/Enemies/PC _ Computer - Undertale - Non-Playable Characters - Monster Kid.png" id="1_wefrq"]
 [ext_resource type="PackedScene" uid="uid://dw5mp22xy4hvr" path="res://Scenes/Santa/Node/features/gravity.tscn" id="2_tp4h2"]
 [ext_resource type="PackedScene" uid="uid://da1b700cdors4" path="res://Scenes/Santa/Node/features/movement.tscn" id="3_pjnr8"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://d4hns88c3f0jf"]
+[gd_scene load_steps=147 format=3 uid="uid://d4hns88c3f0jf"]
 
 [ext_resource type="Script" uid="uid://bajmj4ebrkq4r" path="res://Scenes/Santa/Code/santa.gd" id="1_0ldnr"]
 [ext_resource type="Texture2D" uid="uid://chfflhnf7t1mc" path="res://Placeholder Art/Santa Claus/Dead (1).png" id="1_ko0sv"]
@@ -86,7 +86,7 @@
 [ext_resource type="Texture2D" uid="uid://8frc1nydspvm" path="res://Placeholder Art/Santa Claus/Walk (12).png" id="83_eo2iy"]
 [ext_resource type="Texture2D" uid="uid://cxs8gpmxvyvn3" path="res://Placeholder Art/Santa Claus/Walk (13).png" id="84_6n2mu"]
 [ext_resource type="PackedScene" uid="uid://dw5mp22xy4hvr" path="res://Scenes/Santa/Node/features/gravity.tscn" id="86_3ac6x"]
-[ext_resource type="Texture2D" uid="uid://wb4xjmv3hjtf" path="res://Placeholder Art/stars-sparkle-ezgif.com-gif-to-sprite-converter.png" id="86_76kpg"]
+[ext_resource type="Texture2D" uid="uid://wb4xjmv3hjtf" path="res://Placeholder Art/Effects/stars-sparkle-ezgif.com-gif-to-sprite-converter.png" id="86_76kpg"]
 [ext_resource type="AudioStream" uid="uid://bmp6jlr1rd22c" path="res://Sounds/Sound Effects/Ho1.mp3" id="86_daj40"]
 [ext_resource type="PackedScene" uid="uid://byoa5p2kp0t08" path="res://Scenes/Santa/Node/features/input.tscn" id="87_daj40"]
 [ext_resource type="PackedScene" uid="uid://da1b700cdors4" path="res://Scenes/Santa/Node/features/movement.tscn" id="88_tcjk5"]
@@ -100,6 +100,7 @@
 [ext_resource type="Script" uid="uid://bhbg6j3lsd4tr" path="res://Scenes/Santa/Code/State Codes/dead.gd" id="95_p08h2"]
 [ext_resource type="PackedScene" uid="uid://c5xdl1i4py1ja" path="res://Scenes/Screens/game_over_screen.tscn" id="98_tcjk5"]
 [ext_resource type="Script" uid="uid://brcxem1o4pqne" path="res://Scenes/Santa/Node/gliding.gd" id="99_n3bu3"]
+[ext_resource type="PackedScene" uid="uid://jqhrb85ywvuf" path="res://Scenes/Santa/Node/features/player_ui.tscn" id="101_n3bu3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k285x"]
 animations = [{
@@ -809,6 +810,10 @@ script = ExtResource("92_i6s46")
 
 [node name="Gliding" type="Node" parent="State Machine"]
 script = ExtResource("99_n3bu3")
+
+[node name="Player UI" parent="." instance=ExtResource("101_n3bu3")]
+position = Vector2(1726, -1000)
+scale = Vector2(0.75, 0.75)
 
 [node name="Game Over Screen" parent="." instance=ExtResource("98_tcjk5")]
 visible = false

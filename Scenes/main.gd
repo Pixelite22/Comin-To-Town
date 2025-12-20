@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	debug.text = "Debug Info: \nSeen By Child: " + str(children.see_santa) + "\nReached Tree: " + str(tree.tree_reached) + "\nCurrent Santa State: " + str(Santa.state_machine.state.name) + "\nSanta's Health: " + str(Santa.health) + "\nJump Counter: " + str(Santa.jump_ctr)
+	debug.text = "Debug Info: \nSeen By Child: " + str(children.see_santa) + "\nReached Tree: " + str(tree.tree_reached) + "\nCurrent Santa State: " + str(Santa.state_machine.state.name) + "\nSanta's Health: " + str(Santa.health) + "\nJump Counter: " + str(Santa.jump_ctr) + "\nGifts Held: " + str(Santa.gifts_held)
 	if Input.is_action_pressed("Pause") and not pause_menu_enabled and pausable:
 		game_paused.emit()
 		pause_menu_enabled == true

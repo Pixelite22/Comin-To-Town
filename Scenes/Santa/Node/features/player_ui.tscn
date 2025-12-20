@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://jqhrb85ywvuf"]
+
+[ext_resource type="Texture2D" uid="uid://bnyo302wj2ky7" path="res://Placeholder Art/UI Items/Health/Health Cane.png" id="1_lfwvg"]
+
+[node name="Player UI" type="Node2D"]
+
+[node name="Health Icon 1" type="Sprite2D" parent="."]
+position = Vector2(-338, -4)
+texture = ExtResource("1_lfwvg")
+
+[node name="Health Icon 2" type="Sprite2D" parent="."]
+position = Vector2(-7, 3)
+texture = ExtResource("1_lfwvg")
+
+[node name="Health Icon 3" type="Sprite2D" parent="."]
+position = Vector2(351, 25)
+texture = ExtResource("1_lfwvg")
