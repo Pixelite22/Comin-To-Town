@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://gdptauy3x6tm"]
 
-[ext_resource type="Texture2D" uid="uid://cg0qctv4mn058" path="res://Placeholder Art/christmas-game-assets-kit-06-removebg-preview.png" id="1_iy1q6"]
+[ext_resource type="Texture2D" uid="uid://cg0qctv4mn058" path="res://Placeholder Art/Items and Level Elements/christmas-game-assets-kit-06-removebg-preview.png" id="1_iy1q6"]
 [ext_resource type="Script" uid="uid://cpy6ja14whut0" path="res://Scenes/Maps/Map Parts/tree.gd" id="1_rvutp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rvutp"]
@@ -15,6 +15,17 @@ texture = ExtResource("1_iy1q6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rvutp")
+
+[node name="Gift Placement" type="Node" parent="."]
+
+[node name="Placement 1" type="Marker2D" parent="Gift Placement"]
+position = Vector2(-66, 137)
+
+[node name="Placement 2" type="Marker2D" parent="Gift Placement"]
+position = Vector2(-1, 166)
+
+[node name="Placement 3" type="Marker2D" parent="Gift Placement"]
+position = Vector2(70, 138)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

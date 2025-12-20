@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cup8dqrpy6esv"]
 
-[ext_resource type="Texture2D" uid="uid://cxxgx1mdxmvl5" path="res://Placeholder Art/Cookie Sheet 16x16_nnekart-sample.png" id="1_ddsc5"]
+[ext_resource type="Texture2D" uid="uid://cxxgx1mdxmvl5" path="res://Placeholder Art/Items and Level Elements/Cookie Sheet 16x16_nnekart-sample.png" id="1_ddsc5"]
 [ext_resource type="Script" uid="uid://143282m7tx8x" path="res://Scenes/cookies_and_milk.gd" id="1_kahi2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kahi2"]

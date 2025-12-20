@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://1vskqlvs7uwp"]
+
+[ext_resource type="Script" uid="uid://pnlqu0jydipy" path="res://Scenes/Maps/Map Parts/sleigh.gd" id="1_g17ep"]
+[ext_resource type="Texture2D" uid="uid://dfw4wu7wwjda1" path="res://Placeholder Art/Items and Level Elements/256-2565887_santas-sleigh-by-grayfox5000-on-clipart-library-santas-sleigh-sprite-removebg-preview.png" id="1_j0qyu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dmxf"]
+radius = 142.0
+height = 688.0
+
+[node name="Sleigh" type="Area2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_g17ep")
+gifts_held = 5
+
+[node name="Gift Placement" type="Node" parent="."]
+
+[node name="Gift Place 1" type="Marker2D" parent="Gift Placement"]
+position = Vector2(-299, -161)
+
+[node name="Gift Place 2" type="Marker2D" parent="Gift Placement"]
+position = Vector2(-205, -164)
+
+[node name="Gift Place 3" type="Marker2D" parent="Gift Placement"]
+position = Vector2(-252, -242)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_j0qyu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_0dmxf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
