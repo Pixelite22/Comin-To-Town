@@ -1,0 +1,166 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf6git0qbcgim"]
+
+[ext_resource type="Texture2D" uid="uid://bgep3uwv0k8e0" path="res://Placeholder Art/Level/Test Map 2 Background.jpg" id="1_tdc7p"]
+[ext_resource type="PackedScene" uid="uid://dahd7c62ydyy0" path="res://Scenes/Maps/Map Parts/flooring.tscn" id="2_ftk4a"]
+
+[node name="Test Map 2" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_tdc7p")
+
+[node name="Flooring" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-735, -387)
+
+[node name="Flooring2" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-665, -387)
+
+[node name="Flooring3" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-595, -387)
+
+[node name="Flooring4" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-525, -387)
+
+[node name="Flooring33" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-738, -100)
+
+[node name="Flooring34" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-668, -100)
+
+[node name="Flooring35" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-598, -100)
+
+[node name="Flooring36" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-528, -100)
+
+[node name="Flooring37" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-514, 140)
+
+[node name="Flooring38" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-444, 140)
+
+[node name="Flooring39" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-374, 140)
+
+[node name="Flooring40" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-304, 140)
+
+[node name="Flooring41" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-154, 290)
+
+[node name="Flooring42" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-84, 290)
+
+[node name="Flooring43" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-14, 290)
+
+[node name="Flooring44" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(56, 290)
+
+[node name="Flooring45" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(502, 204)
+
+[node name="Flooring46" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(572, 204)
+
+[node name="Flooring47" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(642, 204)
+
+[node name="Flooring48" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(712, 204)
+
+[node name="Flooring49" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(174, 396)
+
+[node name="Flooring50" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(244, 396)
+
+[node name="Flooring51" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(314, 396)
+
+[node name="Flooring52" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(384, 396)
+
+[node name="Flooring5" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-455, -387)
+
+[node name="Flooring6" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-385, -387)
+
+[node name="Flooring7" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-315, -387)
+
+[node name="Flooring8" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-245, -387)
+
+[node name="Flooring9" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-175, -387)
+
+[node name="Flooring10" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-105, -387)
+
+[node name="Flooring11" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-35, -387)
+
+[node name="Flooring12" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(35, -387)
+
+[node name="Flooring13" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(105, -387)
+
+[node name="Flooring14" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(175, -387)
+
+[node name="Flooring15" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(245, -387)
+
+[node name="Flooring16" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(315, -387)
+
+[node name="Flooring17" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-279, -99)
+
+[node name="Flooring18" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-209, -99)
+
+[node name="Flooring19" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-139, -99)
+
+[node name="Flooring20" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(-69, -99)
+
+[node name="Flooring21" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(1, -99)
+
+[node name="Flooring22" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(71, -99)
+
+[node name="Flooring23" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(141, -99)
+
+[node name="Flooring24" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(211, -99)
+
+[node name="Flooring25" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(281, -99)
+
+[node name="Flooring26" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(351, -99)
+
+[node name="Flooring27" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(421, -99)
+
+[node name="Flooring28" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(491, -99)
+
+[node name="Flooring29" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(561, -99)
+
+[node name="Flooring30" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(631, -99)
+
+[node name="Flooring31" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(701, -99)
+
+[node name="Flooring32" parent="." instance=ExtResource("2_ftk4a")]
+position = Vector2(771, -99)

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://dahd7c62ydyy0"]
+
+[ext_resource type="Texture2D" uid="uid://b7yoj6gxsjl2h" path="res://Placeholder Art/Level/Parts/Tiles/iceBlock.png" id="1_2drbt"]
+[ext_resource type="Texture2D" uid="uid://ktinpqwaukia" path="res://Placeholder Art/Level/Parts/Tiles/iceBlockAlt.png" id="2_3t15m"]
+[ext_resource type="Texture2D" uid="uid://cj5lgqno74sg" path="res://Placeholder Art/Level/Parts/Tiles/tundra.png" id="3_ifjl8"]
+[ext_resource type="Texture2D" uid="uid://b54qvp5d22w26" path="res://Placeholder Art/Level/Parts/Tiles/treeTrunkBranch.png" id="4_ood53"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xtnv5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2drbt")
+}],
+"loop": true,
+"name": &"Ice",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3t15m")
+}],
+"loop": true,
+"name": &"Ice Sparkle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ifjl8")
+}],
+"loop": true,
+"name": &"Snow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ood53")
+}],
+"loop": true,
+"name": &"Wood",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2drbt"]
+size = Vector2(70, 69)
+
+[node name="Flooring" type="StaticBody2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xtnv5")
+animation = &"Snow"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2drbt")

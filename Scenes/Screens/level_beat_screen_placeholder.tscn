@@ -1,14 +1,17 @@
-[gd_scene format=3 uid="uid://otfjdmrqtc5p"]
+[gd_scene load_steps=2 format=3 uid="uid://otfjdmrqtc5p"]
+
+[ext_resource type="FontFile" uid="uid://bo0siv3b2h7n3" path="res://Font/JollySweater_Font_1_0/OpenType (.otf)/JollySweater-Bold.otf" id="1_tv27a"]
 
 [node name="Level Beat Screen Placeholder" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 243.0
-offset_top = 61.0
-offset_right = 963.0
-offset_bottom = 171.0
-theme_override_colors/font_color = Color(0.603922, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.670588, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
+offset_left = -1.0
+offset_top = 98.0
+offset_right = 1130.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.8, 0, 0.0156863, 1)
+theme_override_colors/font_shadow_color = Color(0.172549, 0.486275, 0, 1)
+theme_override_colors/font_outline_color = Color(0.172549, 0.486275, 0, 1)
+theme_override_fonts/font = ExtResource("1_tv27a")
+theme_override_font_sizes/font_size = 79
 text = "LEVEL COMPLETED"

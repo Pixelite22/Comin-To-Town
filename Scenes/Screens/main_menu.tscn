@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://btkl6v7g8v6j7"]
+[gd_scene load_steps=4 format=3 uid="uid://btkl6v7g8v6j7"]
 
 [ext_resource type="Texture2D" uid="uid://brgptrolgur3" path="res://Placeholder Art/Main Menu Art/Rankin and Bass North Pole.jpg" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://wak6c7yvusui" path="res://Scenes/Screens/main_menu.gd" id="1_7vrkn"]
+[ext_resource type="FontFile" uid="uid://bo0siv3b2h7n3" path="res://Font/JollySweater_Font_1_0/OpenType (.otf)/JollySweater-Bold.otf" id="3_2yntn"]
 
 [node name="Main Menu" type="Node2D"]
 process_mode = 2
@@ -16,26 +17,32 @@ scale = Vector2(0.95, 0.95)
 texture = ExtResource("1_06t4h")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 376.0
-offset_top = 71.0
-offset_right = 844.0
-offset_bottom = 147.0
+offset_left = 214.0
+offset_top = 52.0
+offset_right = 1020.0
+offset_bottom = 104.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.899258, 0.899258, 0.899258, 1)
+theme_override_fonts/font = ExtResource("3_2yntn")
 theme_override_font_sizes/font_size = 52
 text = "Comin' To Town!!!"
 
 [node name="Play" type="Button" parent="."]
-offset_left = 500.0
-offset_top = 265.0
-offset_right = 699.0
-offset_bottom = 334.0
+offset_left = 459.0
+offset_top = 261.0
+offset_right = 731.0
+offset_bottom = 330.0
+theme_override_fonts/font = ExtResource("3_2yntn")
+theme_override_font_sizes/font_size = 44
 text = "Start!"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 505.0
-offset_top = 391.0
-offset_right = 700.0
-offset_bottom = 461.0
+offset_left = 482.0
+offset_top = 384.0
+offset_right = 710.0
+offset_bottom = 454.0
+theme_override_fonts/font = ExtResource("3_2yntn")
+theme_override_font_sizes/font_size = 44
 text = "Quit!"
 
 [node name="Camera2D" type="Camera2D" parent="."]

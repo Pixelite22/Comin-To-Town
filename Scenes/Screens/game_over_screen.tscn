@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c5xdl1i4py1ja"]
+[gd_scene load_steps=16 format=3 uid="uid://c5xdl1i4py1ja"]
 
 [ext_resource type="Texture2D" uid="uid://bj34k8na25oyx" path="res://Placeholder Art/Game Over Background/GameOverPlaceholderBackground-ezgif.com-gif-to-sprite-converter.png" id="1_0gua7"]
 [ext_resource type="Script" uid="uid://dmnv560a8qxvg" path="res://Scenes/Screens/game_over_screen.gd" id="1_jb6in"]
+[ext_resource type="FontFile" uid="uid://bo0siv3b2h7n3" path="res://Font/JollySweater_Font_1_0/OpenType (.otf)/JollySweater-Bold.otf" id="3_f41m0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb6in"]
 atlas = ExtResource("1_0gua7")
@@ -95,10 +96,13 @@ script = ExtResource("1_jb6in")
 sprite_frames = SubResource("SpriteFrames_twso6")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -217.0
-offset_top = -76.0
-offset_right = 178.0
-offset_bottom = 37.0
-theme_override_colors/font_shadow_color = Color(0.85098, 0, 0, 1)
-theme_override_font_sizes/font_size = 73
+offset_left = -221.0
+offset_top = -81.0
+offset_right = 213.0
+offset_bottom = -30.0
+theme_override_colors/font_color = Color(0.784314, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_f41m0")
+theme_override_font_sizes/font_size = 51
 text = "GAME OVER"
