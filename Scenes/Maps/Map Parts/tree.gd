@@ -1,6 +1,9 @@
 extends Area2D
 class_name goal
 
+signal presents_fully_placed
+signal tree_full
+
 var tree_reached := false
 var gifts := []
 
@@ -9,7 +12,7 @@ var gifts := []
 @onready var gift_placement_2 := $"Gift Placement/Placement 2"
 @onready var gift_placement_3 := $"Gift Placement/Placement 3"
 var gift_ctr := 0
-var tree_full := false
+var full := false
 
 func _physics_process(_delta: float) -> void:
 	pass
@@ -17,7 +20,7 @@ func _physics_process(_delta: float) -> void:
 func _on_body_entered(body: CharacterBody2D) -> void:
 	if body.is_in_group("Player"):
 		tree_reached = true
-		if body.gifts_held >= 0 and not tree_full:
+		if body.gifts_held >= 0 and not full:
 			if body.gifts_held >= 3:
 				body.gifts_held -= 3
 				gift_placement(3)
@@ -46,4 +49,5 @@ func gift_placement(amount):
 			gift.position = gift_placement_2.position
 		if gift_ctr == 3:
 			gift.position = gift_placement_3.position
-			tree_full = true
+			full = true
+			tree_full.emit()

@@ -10,6 +10,7 @@ signal game_paused
 @onready var pause_menu := $"Pause Menu"
 @onready var main_menu := $"Main Menu"
 #@onready var EBus := $"../Event Bus"
+@onready var level_complete := $"Santa/Level Beat Screen Placeholder"
 
 var pause_menu_enabled := false
 var pausable := true
@@ -47,3 +48,9 @@ func _on_main_menu_play_button_pressed() -> void:
 
 func _on_santa_died() -> void:
 	pausable = false
+
+func _on_sleigh_level_completed() -> void:
+	level_complete.show()
+
+func _on_fire_body_entered(body: CharacterBody2D) -> void:
+	Santa.damage(true, 2)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://t28jpqsprpun"]
+[gd_scene load_steps=15 format=3 uid="uid://t28jpqsprpun"]
 
 [ext_resource type="Script" uid="uid://cnlcp3jmdlfjf" path="res://Scenes/main.gd" id="1_4rhp3"]
 [ext_resource type="PackedScene" uid="uid://d4hns88c3f0jf" path="res://Scenes/Santa/Node/santa.tscn" id="2_feddk"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://btkl6v7g8v6j7" path="res://Scenes/Screens/main_menu.tscn" id="10_6iyac"]
 [ext_resource type="PackedScene" uid="uid://bqdtdeiu6xsmu" path="res://Scenes/Screens/pause_menu.tscn" id="10_d1ilt"]
 [ext_resource type="Script" uid="uid://bqje4226ernhu" path="res://Scenes/background_music.gd" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://cr6m6iu3fdy8k" path="res://Scenes/Maps/Map Parts/fire.tscn" id="13_fdnlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ccry"]
 size = Vector2(1861, 26)
@@ -27,6 +28,9 @@ position = Vector2(55, 165)
 
 [node name="Cookies and Milk2" parent="." instance=ExtResource("3_d1ilt")]
 position = Vector2(1019, 475)
+
+[node name="Fire" parent="." instance=ExtResource("13_fdnlq")]
+position = Vector2(423, 471)
 
 [node name="Children" parent="." instance=ExtResource("4_feddk")]
 position = Vector2(935, 475)
@@ -72,8 +76,10 @@ visible = false
 [connection signal="game_paused" from="." to="." method="_on_game_paused"]
 [connection signal="game_paused" from="." to="Santa" method="_on_main_game_paused"]
 [connection signal="game_paused" from="." to="Pause Menu" method="_on_main_game_paused"]
+[connection signal="body_entered" from="Fire" to="." method="_on_fire_body_entered"]
 [connection signal="santa_seen" from="Children" to="." method="_on_children_santa_seen"]
 [connection signal="santa_seen" from="Children2" to="." method="_on_children_santa_seen"]
+[connection signal="level_completed" from="Sleigh" to="." method="_on_sleigh_level_completed"]
 [connection signal="died" from="Santa" to="." method="_on_santa_died"]
 [connection signal="game_unpaused" from="Pause Menu" to="." method="_on_pause_menu_game_unpaused"]
 [connection signal="body_entered" from="Death Barrier" to="." method="_on_death_barrier_body_entered"]

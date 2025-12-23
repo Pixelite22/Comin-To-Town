@@ -83,10 +83,12 @@ func healthbarupdate():
 		for icon in healthicons:
 			icon.texture = load("res://Placeholder Art/UI Items/Health/Broken Candy Cane.png")
 
-func damage():
+func damage(knockback := false, dmg := 1):
 	if not dead_flg:
-		health -= 1
+		health -= dmg
 		healthbarupdate()
+#		if knockback:
+#			pass #need to fill this spot here if we decide knockback is something fire should have or not
 		print("Santa Health: ", health)
 		if health <= 0:
 			state_machine.state_transition("Dead")
