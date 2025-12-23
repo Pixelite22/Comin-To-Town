@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://t28jpqsprpun"]
 
 [ext_resource type="Script" uid="uid://cnlcp3jmdlfjf" path="res://Scenes/main.gd" id="1_4rhp3"]
+[ext_resource type="PackedScene" uid="uid://bf6git0qbcgim" path="res://Scenes/Maps/test_map_2.tscn" id="2_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://d4hns88c3f0jf" path="res://Scenes/Santa/Node/santa.tscn" id="2_feddk"]
 [ext_resource type="PackedScene" uid="uid://gdptauy3x6tm" path="res://Scenes/Maps/Map Parts/tree.tscn" id="3_4rhp3"]
 [ext_resource type="PackedScene" uid="uid://cup8dqrpy6esv" path="res://Scenes/cookies_and_milk.tscn" id="3_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b3jofnfxo1x8c" path="res://Scenes/Children/children.tscn" id="4_feddk"]
 [ext_resource type="PackedScene" uid="uid://1vskqlvs7uwp" path="res://Scenes/Maps/Map Parts/sleigh.tscn" id="5_6iyac"]
-[ext_resource type="PackedScene" uid="uid://ba7h14gluh4nt" path="res://Scenes/Maps/test_map.tscn" id="6_344ge"]
 [ext_resource type="Script" uid="uid://bi6olknmbwttv" path="res://Scenes/Maps/Map Parts/death_barrier.gd" id="7_adxf4"]
 [ext_resource type="AudioStream" uid="uid://oc1pqg0hciu2" path="res://Sounds/Background Music/Marshmallow World - No Vocals.mp3" id="9_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://btkl6v7g8v6j7" path="res://Scenes/Screens/main_menu.tscn" id="10_6iyac"]
@@ -15,38 +15,42 @@
 [ext_resource type="PackedScene" uid="uid://cr6m6iu3fdy8k" path="res://Scenes/Maps/Map Parts/fire.tscn" id="13_fdnlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ccry"]
-size = Vector2(1861, 26)
+size = Vector2(2571, 31)
 
 [node name="Main" type="Node2D"]
 process_mode = 1
 script = ExtResource("1_4rhp3")
 
-[node name="Test Map" parent="." instance=ExtResource("6_344ge")]
+[node name="Test Map 2" parent="." instance=ExtResource("2_fdnlq")]
+position = Vector2(960, 539)
 
 [node name="Cookies and Milk" parent="." instance=ExtResource("3_d1ilt")]
-position = Vector2(55, 165)
+position = Vector2(234, 355)
 
 [node name="Cookies and Milk2" parent="." instance=ExtResource("3_d1ilt")]
-position = Vector2(1019, 475)
+position = Vector2(907, 645)
 
 [node name="Fire" parent="." instance=ExtResource("13_fdnlq")]
-position = Vector2(423, 471)
+position = Vector2(909, 748)
 
 [node name="Children" parent="." instance=ExtResource("4_feddk")]
-position = Vector2(935, 475)
+position = Vector2(1131, 859)
 
 [node name="Children2" parent="." instance=ExtResource("4_feddk")]
-position = Vector2(280, 128)
+position = Vector2(448, 599)
+
+[node name="Children3" parent="." instance=ExtResource("4_feddk")]
+position = Vector2(1364, 358)
 
 [node name="Sleigh" parent="." instance=ExtResource("5_6iyac")]
-position = Vector2(85, 479)
+position = Vector2(269, 82)
 
 [node name="Tree" parent="." instance=ExtResource("3_4rhp3")]
-position = Vector2(1087, 99)
+position = Vector2(1593, 633)
 scale = Vector2(0.5, 0.5)
 
 [node name="Santa" parent="." instance=ExtResource("2_feddk")]
-position = Vector2(305, 448)
+position = Vector2(567, 52)
 scale = Vector2(0.25, 0.25)
 
 [node name="Pause Menu" parent="." instance=ExtResource("10_d1ilt")]
@@ -60,7 +64,7 @@ position = Vector2(549, 650)
 script = ExtResource("7_adxf4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death Barrier"]
-position = Vector2(7.5, 8)
+position = Vector2(334.5, 412.5)
 shape = SubResource("RectangleShape2D_8ccry")
 
 [node name="Background Music" type="AudioStreamPlayer" parent="."]
@@ -79,6 +83,7 @@ visible = false
 [connection signal="body_entered" from="Fire" to="." method="_on_fire_body_entered"]
 [connection signal="santa_seen" from="Children" to="." method="_on_children_santa_seen"]
 [connection signal="santa_seen" from="Children2" to="." method="_on_children_santa_seen"]
+[connection signal="santa_seen" from="Children3" to="." method="_on_children_santa_seen"]
 [connection signal="level_completed" from="Sleigh" to="." method="_on_sleigh_level_completed"]
 [connection signal="died" from="Santa" to="." method="_on_santa_died"]
 [connection signal="game_unpaused" from="Pause Menu" to="." method="_on_pause_menu_game_unpaused"]
