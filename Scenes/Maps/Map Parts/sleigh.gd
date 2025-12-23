@@ -1,5 +1,7 @@
 extends Area2D
 
+signal level_completed
+
 @export var gifts_held := 10
 
 var gifts := []
@@ -15,7 +17,11 @@ var gi2
 var gi3
 var gift_ctr := 0
 
+var level_beatable := false
+
 func _ready() -> void:
+	SignalBus.connect("tree_full", level_beat_unlock)
+	
 	gi1 = gift_1.instantiate()
 	add_child(gi1)
 	gi2 = gift_2.instantiate()
@@ -27,7 +33,8 @@ func _ready() -> void:
 	gi3.position = gift_placement_3.position
 	gift_placement()
 
-
+func level_beat_unlock():
+	level_beatable = true
 
 func gift_placement():
 	if gifts_held >= 3:
@@ -55,8 +62,10 @@ func _on_body_entered(body: CharacterBody2D) -> void:
 			if gifts_held >= gifts_needed:
 				gifts_held -= gifts_needed
 				body.gifts_held += gifts_needed
+				gift_placement()
 			elif gifts_held < gifts_needed:
 				body.gifts_held += gifts_held
 				gifts_held = 0
-	
-	gift_placement()
+				gift_placement()
+		if level_beatable:
+			level_completed.emit()

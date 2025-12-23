@@ -7,6 +7,7 @@ signal game_paused
 signal game_unpaused
 signal play_button_pressed
 signal cookie_collected
+signal tree_full
 
 @onready var main := $"../Main"
 @onready var Santa := $"../Main/Santa"
@@ -15,6 +16,7 @@ signal cookie_collected
 @onready var main_menu := $"../Main/Main Menu"
 @onready var death_barrier := $"../Main/Death Barrier"
 @onready var cookie := $"../Main/Cookies and Milk"
+@onready var tree := $"../Main/Tree"
 
 
 func _ready() -> void:
@@ -24,6 +26,7 @@ func _ready() -> void:
 	pause_screen.connect("game_unpaused", unpause)
 	main_menu.connect("play_button_pressed", play)
 	cookie.connect("cookie_collected", collected)
+	tree.connect("tree_full", filled)
 
 func see_santa():
 	santa_seen.emit()
@@ -46,3 +49,6 @@ func play():
 func collected():
 	print("Event Bus caught and emitting cookie_collected signal")
 	cookie_collected.emit()
+
+func filled():
+	tree_full.emit()
