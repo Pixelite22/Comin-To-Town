@@ -8,6 +8,7 @@ signal game_unpaused
 signal play_button_pressed
 signal cookie_collected
 signal tree_full
+signal powerup_chosen(powerup)
 
 @onready var main := $"../Main"
 @onready var Santa := $"../Main/Santa"
@@ -17,6 +18,7 @@ signal tree_full
 @onready var death_barrier := $"../Main/Death Barrier"
 @onready var cookie := $"../Main/Cookies and Milk"
 @onready var tree := $"../Main/Tree"
+@onready var powerup_menu := $"../Main/Santa/Powerup Menu"
 
 
 func _ready() -> void:
@@ -27,6 +29,7 @@ func _ready() -> void:
 	main_menu.connect("play_button_pressed", play)
 	cookie.connect("cookie_collected", collected)
 	tree.connect("tree_full", filled)
+	powerup_menu.connect("powerup_chosen", choose_powerup)
 
 func see_santa():
 	santa_seen.emit()
@@ -52,3 +55,6 @@ func collected():
 
 func filled():
 	tree_full.emit()
+
+func choose_powerup(powerup):
+	powerup_chosen.emit(powerup)

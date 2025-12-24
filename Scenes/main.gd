@@ -21,6 +21,9 @@ func _ready() -> void:
 	
 	main_menu.camera.enabled = true
 	get_tree().paused = true
+	
+	SignalBus.connect("cookie_collected", powerup_pause)
+	SignalBus.connect("powerup_chosen", powerup_unpause)
 
 
 func _process(delta: float) -> void:
@@ -54,3 +57,9 @@ func _on_sleigh_level_completed() -> void:
 
 func _on_fire_body_entered(body: CharacterBody2D) -> void:
 	Santa.damage(true, 2)
+
+func powerup_pause():
+	get_tree().paused = true
+
+func powerup_unpause(powerup):
+	get_tree().paused = false

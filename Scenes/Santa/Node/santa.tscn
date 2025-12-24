@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=3 uid="uid://d4hns88c3f0jf"]
+[gd_scene load_steps=149 format=3 uid="uid://d4hns88c3f0jf"]
 
 [ext_resource type="Script" uid="uid://bajmj4ebrkq4r" path="res://Scenes/Santa/Code/santa.gd" id="1_0ldnr"]
 [ext_resource type="Texture2D" uid="uid://chfflhnf7t1mc" path="res://Placeholder Art/Santa Claus/Dead (1).png" id="1_ko0sv"]
@@ -102,6 +102,7 @@
 [ext_resource type="Script" uid="uid://brcxem1o4pqne" path="res://Scenes/Santa/Node/gliding.gd" id="99_n3bu3"]
 [ext_resource type="PackedScene" uid="uid://jqhrb85ywvuf" path="res://Scenes/Santa/Node/features/player_ui.tscn" id="101_n3bu3"]
 [ext_resource type="PackedScene" uid="uid://otfjdmrqtc5p" path="res://Scenes/Screens/level_beat_screen_placeholder.tscn" id="101_q12q4"]
+[ext_resource type="PackedScene" uid="uid://ccd63slqqj4uc" path="res://Scenes/Screens/powerup_menu.tscn" id="103_rnoll"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k285x"]
 animations = [{
@@ -825,6 +826,11 @@ scale = Vector2(3.28, 3.28)
 visible = false
 scale = Vector2(9.28, 9.28)
 
+[node name="Powerup Menu" parent="." instance=ExtResource("103_rnoll")]
+process_mode = 2
+visible = false
+scale = Vector2(4, 4)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
 
@@ -847,3 +853,5 @@ text = "Debug Info:
 Seen By Child: 
 Reached Tree:
 Current Santa State:"
+
+[connection signal="powerup_chosen" from="Powerup Menu" to="." method="_on_powerup_menu_powerup_chosen"]
