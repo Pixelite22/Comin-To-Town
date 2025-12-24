@@ -24,7 +24,13 @@ var hasGlided := false
 
 #Power Up Flags
 var glide := false
+var double_jump := false
+var triple_jump := false
+var snowball := false
+var powerup_choices = ["Glide", "Extra Jump", "Extra Jump", "Snowball"]
+var powerup_choices_editable
 
+#Nodes
 @onready var sprite := $Sprite
 @onready var sparkleSprite := $"Sprite/Sparkle Sprite"
 @onready var collision := $Collision
@@ -35,6 +41,7 @@ var glide := false
 @onready var camera := $Camera2D
 @onready var debug := $"Debug Info"
 @onready var ui := $"Player UI"
+@onready var power_up_menu := $"Powerup Menu"
 var healthicons := []
 
 func _ready() -> void:
@@ -42,9 +49,10 @@ func _ready() -> void:
 	SignalBus.connect("game_unpaused", game_start_resume)
 	SignalBus.connect("play_button_pressed", game_start_resume)
 	SignalBus.connect("hit_death_barrier", death_handling)
-	SignalBus.connect("cookie_collected", powerup_enabling)
+	SignalBus.connect("cookie_collected", powerup_menu_call)
 	
 	healthbarinit()
+	powerup_choices_editable = powerup_choices.duplicate()
 
 func _physics_process(_delta: float) -> void: #every physics frame
 	grav.handleGravity(self, move.handleGlide(self, inp.glide(self), glide), _delta) #Run the handle gravity function
@@ -113,11 +121,19 @@ func game_start_resume():
 	if not debug.is_visible_in_tree():
 		debug.show()
 
-func powerup_enabling():
+func powerup_menu_call():
 	print("Santa caught cookie collected signal")
-	#in the future this will call a function that will open a menu to allow choice of power up but for now
-	if jump_max < 3:
-		jump_max += 1
-		jump_ctr = jump_max
-	if not glide:
-		glide = true
+	power_up_menu.random_choice(powerup_choices_editable)
+	power_up_menu.show()
+
+func _on_powerup_menu_powerup_chosen(powerup: Variant) -> void:
+	if powerup == "Glide":
+		if not glide:
+			glide = true
+	elif powerup == "Extra Jump":
+		if jump_max < 3:
+			jump_max += 1
+			jump_ctr = jump_max
+	elif powerup == "Snowball":
+		if not snowball:
+			snowball = true
