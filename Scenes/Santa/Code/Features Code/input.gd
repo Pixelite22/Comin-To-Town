@@ -20,3 +20,6 @@ func slide():
 
 func sprint():
 	return Input.is_action_pressed("Sprint")
+
+func shoot():
+	return Input.is_action_just_pressed("Shoot")

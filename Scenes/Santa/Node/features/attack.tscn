@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://co4o7cw2kta4b"]
+
+[ext_resource type="Script" uid="uid://v4nkl2fhag5r" path="res://Scenes/Santa/Code/Features Code/attacks.gd" id="1_klnvc"]
+
+[node name="Attack" type="Node"]
+script = ExtResource("1_klnvc")

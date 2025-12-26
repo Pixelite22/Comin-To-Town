@@ -7,6 +7,7 @@ signal died
 @export var grav: gravity
 @export var inp: input
 @export var move: movement
+@export var atk: attacks
 @export var state_machine: stateMachine
 
 @export_subgroup("Stats")
@@ -23,11 +24,12 @@ var times_jumped = clampi(0, 0, 3)
 var hasGlided := false
 
 #Power Up Flags
-var glide := false
-var double_jump := false
-var triple_jump := false
-var snowball := false
-var powerup_choices = ["Glide", "Extra Jump", "Extra Jump", "Snowball"]
+@export_subgroup("Power-Up Flags")
+@export var glide := false
+@export var double_jump := false
+@export var triple_jump := false
+@export var snowball := false
+@export var powerup_choices = ["Glide", "Extra Jump", "Extra Jump", "Snowball"]
 var powerup_choices_editable
 
 #Nodes
@@ -60,6 +62,7 @@ func _physics_process(_delta: float) -> void: #every physics frame
 	move.handleMovementH(self, inp.inputH, speed, inp.sprint()) #run the handle horizontal movement functoin to check for attempts
 	move.handleJump(self, inp.jump()) #run jump function to check fo jump attempts
 	
+	atk.snowball(self, direction(), inp.shoot(), snowball)
 	
 	if is_on_floor():
 		jump_ctr = jump_max
@@ -68,6 +71,12 @@ func _physics_process(_delta: float) -> void: #every physics frame
 	
 	
 	move_and_slide() #move and slide magic function that does shit for stuff somehow
+
+func direction():
+	if sprite.flip_h == false:
+		return 1.0
+	else:
+		return -1.0
 
 func healthbarinit():
 	for icon in ui.get_children():
@@ -126,7 +135,7 @@ func powerup_menu_call():
 	power_up_menu.random_choice(powerup_choices_editable)
 	power_up_menu.show()
 
-func _on_powerup_menu_powerup_chosen(powerup: Variant) -> void:
+func _on_powerup_menu_powerup_chosen(powerup: Variant, powerup_not_chosen) -> void:
 	if powerup == "Glide":
 		if not glide:
 			glide = true
@@ -137,3 +146,7 @@ func _on_powerup_menu_powerup_chosen(powerup: Variant) -> void:
 	elif powerup == "Snowball":
 		if not snowball:
 			snowball = true
+	else:
+		pass
+	
+	powerup_choices_editable.append(powerup_not_chosen)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=3 uid="uid://d4hns88c3f0jf"]
+[gd_scene load_steps=150 format=3 uid="uid://d4hns88c3f0jf"]
 
 [ext_resource type="Script" uid="uid://bajmj4ebrkq4r" path="res://Scenes/Santa/Code/santa.gd" id="1_0ldnr"]
 [ext_resource type="Texture2D" uid="uid://chfflhnf7t1mc" path="res://Placeholder Art/Santa Claus/Dead (1).png" id="1_ko0sv"]
@@ -93,6 +93,7 @@
 [ext_resource type="Script" uid="uid://bhi0esbfny4kf" path="res://Scenes/Santa/Code/State Codes/state_machine.gd" id="89_5tef8"]
 [ext_resource type="Script" uid="uid://bremjn4f5ix8g" path="res://Scenes/Santa/Code/State Codes/idle.gd" id="90_66r16"]
 [ext_resource type="Script" uid="uid://bfdjetnvcxdwi" path="res://Scenes/Santa/Code/State Codes/walking.gd" id="91_dp74m"]
+[ext_resource type="PackedScene" uid="uid://co4o7cw2kta4b" path="res://Scenes/Santa/Node/features/attack.tscn" id="91_r5bow"]
 [ext_resource type="Script" uid="uid://nowij0022s86" path="res://Scenes/Santa/Code/State Codes/running.gd" id="92_3ac6x"]
 [ext_resource type="Script" uid="uid://cgisxljlr8uis" path="res://Scenes/Santa/Code/State Codes/falling.gd" id="92_i6s46"]
 [ext_resource type="Script" uid="uid://dkdpvcxa866d7" path="res://Scenes/Santa/Code/State Codes/sliding.gd" id="93_daj40"]
@@ -752,11 +753,12 @@ animations = [{
 radius = 108.0
 height = 494.0
 
-[node name="Santa" type="CharacterBody2D" node_paths=PackedStringArray("grav", "inp", "move", "state_machine") groups=["Player"]]
+[node name="Santa" type="CharacterBody2D" node_paths=PackedStringArray("grav", "inp", "move", "atk", "state_machine") groups=["Player"]]
 script = ExtResource("1_0ldnr")
 grav = NodePath("Gravity")
 inp = NodePath("Input")
 move = NodePath("Movement")
+atk = NodePath("Attack")
 state_machine = NodePath("State Machine")
 speed = 150
 health = 3
@@ -784,6 +786,8 @@ stream = ExtResource("86_daj40")
 [node name="Input" parent="." instance=ExtResource("87_daj40")]
 
 [node name="Movement" parent="." instance=ExtResource("88_tcjk5")]
+
+[node name="Attack" parent="." instance=ExtResource("91_r5bow")]
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
 script = ExtResource("89_5tef8")
