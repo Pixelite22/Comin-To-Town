@@ -30,6 +30,12 @@ position = Vector2(234, 355)
 [node name="Cookies and Milk2" parent="." instance=ExtResource("3_d1ilt")]
 position = Vector2(907, 645)
 
+[node name="Cookies and Milk3" parent="." instance=ExtResource("3_d1ilt")]
+position = Vector2(1219, 64)
+
+[node name="Cookies and Milk4" parent="." instance=ExtResource("3_d1ilt")]
+position = Vector2(1520, 356)
+
 [node name="Fire" parent="." instance=ExtResource("13_fdnlq")]
 position = Vector2(909, 748)
 

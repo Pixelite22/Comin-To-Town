@@ -8,7 +8,9 @@ signal game_unpaused
 signal play_button_pressed
 signal cookie_collected
 signal tree_full
-signal powerup_chosen(powerup)
+signal powerup_chosen(powerup, not_chosen)
+signal threw_snowball(dir)
+signal snowball_hit
 
 @onready var main := $"../Main"
 @onready var Santa := $"../Main/Santa"
@@ -56,5 +58,5 @@ func collected():
 func filled():
 	tree_full.emit()
 
-func choose_powerup(powerup):
-	powerup_chosen.emit(powerup)
+func choose_powerup(powerup, powerup_not_chosen):
+	powerup_chosen.emit(powerup, powerup_not_chosen)

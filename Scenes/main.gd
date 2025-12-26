@@ -15,6 +15,8 @@ signal game_paused
 var pause_menu_enabled := false
 var pausable := true
 
+var snowball_scene := preload("res://Scenes/items/snowball.tscn")
+
 func _ready() -> void:
 	if not main_menu.is_visible_in_tree():
 		main_menu.show()
@@ -24,10 +26,11 @@ func _ready() -> void:
 	
 	SignalBus.connect("cookie_collected", powerup_pause)
 	SignalBus.connect("powerup_chosen", powerup_unpause)
+	SignalBus.connect("threw_snowball", snowball_thrown)
 
 
 func _process(delta: float) -> void:
-	debug.text = "Debug Info: \nSeen By Child: " + str(children.see_santa) + "\nReached Tree: " + str(tree.tree_reached) + "\nCurrent Santa State: " + str(Santa.state_machine.state.name) + "\nSanta's Health: " + str(Santa.health) + "\nJump Counter: " + str(Santa.jump_ctr) + "\nGifts Held: " + str(Santa.gifts_held)
+	debug.text = "Debug Info: \nSeen By Child: " + str(children.see_santa) + "\nReached Tree: " + str(tree.tree_reached) + "\nCurrent Santa State: " + str(Santa.state_machine.state.name) + "\nSanta's Health: " + str(Santa.health) + "\nJump Counter: " + str(Santa.jump_ctr) + "\nGifts Held: " + str(Santa.gifts_held) + "\n Power-Up's left: " + str(Santa.powerup_choices_editable.size())
 	if Input.is_action_pressed("Pause") and not pause_menu_enabled and pausable:
 		game_paused.emit()
 		pause_menu_enabled == true
@@ -61,5 +64,11 @@ func _on_fire_body_entered(body: CharacterBody2D) -> void:
 func powerup_pause():
 	get_tree().paused = true
 
-func powerup_unpause(powerup):
+func powerup_unpause(powerup, not_chosen):
 	get_tree().paused = false
+
+func snowball_thrown(dir):
+	var snowball_instance = snowball_scene.instantiate()
+	snowball_instance.position = Santa.position
+	snowball_instance.direction = dir
+	add_child(snowball_instance)
