@@ -150,3 +150,7 @@ func _on_powerup_menu_powerup_chosen(powerup: Variant, powerup_not_chosen) -> vo
 		pass
 	
 	powerup_choices_editable.append(powerup_not_chosen)
+
+
+func _on_game_over_screen_retry_button_pressed() -> void:
+	camera.enabled = false

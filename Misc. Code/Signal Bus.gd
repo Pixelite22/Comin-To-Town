@@ -11,6 +11,7 @@ signal tree_full
 signal powerup_chosen(powerup, not_chosen)
 signal threw_snowball(dir)
 signal snowball_hit
+signal retry_requested
 
 @onready var main := $"../Main"
 @onready var Santa := $"../Main/Santa"
@@ -21,6 +22,7 @@ signal snowball_hit
 @onready var cookie := $"../Main/Cookies and Milk"
 @onready var tree := $"../Main/Tree"
 @onready var powerup_menu := $"../Main/Santa/Powerup Menu"
+@onready var game_over_screen := $"../Main/Santa/Game Over Screen"
 
 
 func _ready() -> void:
@@ -32,6 +34,7 @@ func _ready() -> void:
 	cookie.connect("cookie_collected", collected)
 	tree.connect("tree_full", filled)
 	powerup_menu.connect("powerup_chosen", choose_powerup)
+	game_over_screen.connect("retry_button_pressed", retry)
 
 func see_santa():
 	santa_seen.emit()
@@ -60,3 +63,6 @@ func filled():
 
 func choose_powerup(powerup, powerup_not_chosen):
 	powerup_chosen.emit(powerup, powerup_not_chosen)
+
+func retry():
+	retry_requested.emit()
