@@ -858,4 +858,5 @@ Seen By Child:
 Reached Tree:
 Current Santa State:"
 
+[connection signal="retry_button_pressed" from="Game Over Screen" to="." method="_on_game_over_screen_retry_button_pressed"]
 [connection signal="powerup_chosen" from="Powerup Menu" to="." method="_on_powerup_menu_powerup_chosen"]

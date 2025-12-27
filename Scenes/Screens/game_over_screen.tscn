@@ -106,3 +106,13 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_f41m0")
 theme_override_font_sizes/font_size = 51
 text = "GAME OVER"
+
+[node name="Retry" type="Button" parent="."]
+offset_left = -30.0
+offset_top = 39.0
+offset_right = 27.0
+offset_bottom = 70.0
+text = "Retry?"
+
+[connection signal="pressed" from="Retry" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

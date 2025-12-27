@@ -27,6 +27,7 @@ func _ready() -> void:
 	SignalBus.connect("cookie_collected", powerup_pause)
 	SignalBus.connect("powerup_chosen", powerup_unpause)
 	SignalBus.connect("threw_snowball", snowball_thrown)
+	SignalBus.connect("retry_requested", restart)
 
 
 func _process(delta: float) -> void:
@@ -51,6 +52,7 @@ func _on_pause_menu_game_unpaused() -> void:
 func _on_main_menu_play_button_pressed() -> void:
 	#main_menu.hide()
 	get_tree().paused = false
+	Santa.camera.enabled = true
 
 func _on_santa_died() -> void:
 	pausable = false
@@ -72,3 +74,9 @@ func snowball_thrown(dir):
 	snowball_instance.position = Santa.position
 	snowball_instance.direction = dir
 	add_child(snowball_instance)
+
+func restart():
+	print("restart function reached")
+	get_tree().reload_current_scene()
+	Santa.camera.make_current()
+#	get_tree().change_scene_to_file("res://Scenes/main.tscn")

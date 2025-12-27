@@ -1,5 +1,7 @@
 extends Node2D
 
+signal retry_button_pressed
+
 @onready var sprite := $AnimatedSprite2D
 
 func _ready() -> void: #on Ready
@@ -18,8 +20,13 @@ func fade_out(duration: float = 5.0): #Fade out function, makes the screen fade 
 	var tween = create_tween() #create a tween to shift opaque screen to invisible
 	# Animates the alpha value from its current value to 0.0 over the specified duration
 	tween.tween_property(self, "modulate:a", 0.0, duration)
+	hide()
 
 func fade_in(duration: float = 5.0): #Fade in function
 	var tween = create_tween() #Create a tween to shift 
 	# Animates the alpha value from its current value to 1.0 over the specified duration
 	tween.tween_property(self, "modulate:a", 1.0, duration)
+
+func _on_retry_pressed() -> void:
+	retry_button_pressed.emit()
+	fade_out()
