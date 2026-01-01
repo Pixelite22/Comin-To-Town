@@ -765,7 +765,8 @@ health = 3
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k285x")
-animation = &"Jump End"
+animation = &"Sliding"
+frame_progress = 0.496043
 
 [node name="Sparkle Sprite" type="AnimatedSprite2D" parent="Sprite"]
 position = Vector2(-80, 0)
@@ -822,6 +823,7 @@ position = Vector2(1726, -1000)
 scale = Vector2(0.75, 0.75)
 
 [node name="Level Beat Screen Placeholder" parent="." instance=ExtResource("101_q12q4")]
+process_mode = 2
 visible = false
 position = Vector2(-1900, -1000)
 scale = Vector2(3.28, 3.28)

@@ -27,6 +27,6 @@ func fade_in(duration: float = 5.0): #Fade in function
 	# Animates the alpha value from its current value to 1.0 over the specified duration
 	tween.tween_property(self, "modulate:a", 1.0, duration)
 
-func _on_retry_pressed() -> void:
-	retry_button_pressed.emit()
-	fade_out()
+func _on_retry_pressed() -> void: #funstion for the retry button
+	retry_button_pressed.emit() #When the button is pressed, emit the signal which will be passed to main in the program
+	fade_out() #call fade out... though i don't think this will actually do much

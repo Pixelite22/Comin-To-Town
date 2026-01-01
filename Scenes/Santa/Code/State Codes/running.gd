@@ -1,31 +1,27 @@
 extends PlayerState
 
 func enter(prev_state: String, data := {}): #When state is entered
-	print("Walking State Entered from ", prev_state)
-#	player.velocity.x > 0.0 or player.velocity.x < 0
-	if Input.is_action_pressed("Sprint"):
-		if Input.is_action_pressed("Left"):
-			player.sprite.flip_h = true
-			player.sprite.offset.x = -117
-		elif Input.is_action_pressed("Right"):
-			player.sprite.flip_h = false
-			player.sprite.offset.x = 0
+	if Input.is_action_pressed("Sprint"): #If player is pressing the sprint button
+		if Input.is_action_pressed("Left"): #and is pressing the left button
+			player.sprite.flip_h = true #Make sure the sprite is flipped the right way
+			player.sprite.offset.x = -117 #and offset correctly
+		elif Input.is_action_pressed("Right"): #and is pressing the right button
+			player.sprite.flip_h = false #Make sure the sprite is flipped the right way
+			player.sprite.offset.x = 0 #and offset correctly
 		player.sprite.play(self.name) #run the animation that shares the name with the state
-	else:
-		state_ended.emit(WALKING)
+	else: #and if they aren't pressing sprint
+		state_ended.emit(WALKING) #immediatly end the sprint state and enter walking
 
 func physics_update(_delta): #Every physics frame/tick check for these conditions
-#	player.velocity.y += player.gravity * _delta
-#	player.move_and_slide()
+	if Input.is_action_just_pressed("Slide"): #If the player wants to slide
+		state_ended.emit(SLIDING) #enter the sliding state
 	
-	if Input.is_action_just_pressed("Slide"):
-		state_ended.emit(SLIDING)
-	
+	#If they want to stop moving
 	if Input.is_action_just_released("Left") or Input.is_action_just_released("Right") or (Input.is_action_pressed("Left") and Input.is_action_pressed("Right")):
-		state_ended.emit(IDLE)
+		state_ended.emit(IDLE) #enter the idle state
 	
-	if Input.is_action_just_released("Sprint"):
-		state_ended.emit(WALKING)
+	if Input.is_action_just_released("Sprint"): #and if they let go of the sprint button but are still moving
+		state_ended.emit(WALKING) #move to walking
 	
 	if not player.is_on_floor(): #if player isn't touching the floor
 		state_ended.emit(FALLING) #change the state to that of the falling state
