@@ -56,20 +56,29 @@ func _on_timer_timeout() -> void: #When the timer node reaches 0
 	#Make the child travel backward
 	directflag *= -1
 
+#function fo stunning the NPC
 func stunned():
-	BCollide.disabled = true
-	VCollide.disabled = true
-	var regspeed = speed
-	speed = 0
-	Sprite.play("Fell Over")
+	collision_disable()
+	var regspeed = speed #save the speed
+	speed = 0 #Set the speed to 0
+	Sprite.play("Fell Over") #and finally play the animation for falling over
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(2.0).timeout #Then wait two seconds
 	
-	Sprite.play("Picking self up")
+	Sprite.play("Picking self up") #play the animation for picking themselves up
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(2.0).timeout #wait two more seconds
 	
-	Sprite.play("Walking")
-	BCollide.disabled = false
-	VCollide.disabled = false
-	speed = regspeed
+	Sprite.play("Walking") #Start playing the walking animation again
+	collision_enable()
+	speed = regspeed #and put the speed back to what it should be
+
+
+func collision_disable():
+	BCollide.set_deferred("disabled", true) #disable body collision
+	VCollide.set_deferred("disabled", true) #disable vision collision
+
+
+func collision_enable():
+	BCollide.set_deferred("disabled", false) #enable body collision
+	VCollide.set_deferred("disabled", false) #enable vision collision

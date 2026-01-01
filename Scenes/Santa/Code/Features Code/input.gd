@@ -3,6 +3,10 @@ class_name input
 
 var inputH = 0.0
 
+#For the most part, this code is to set flags on the player script
+#The player calls these functions when needed to provide either boolian outputs for certain features like jumping and gliding
+#Or positive and negative integers for walking and running
+
 func _process(_delta: float) -> void:
 	inputH = Input.get_axis("Left", "Right")
 

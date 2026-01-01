@@ -63,7 +63,6 @@ scale = Vector2(0.25, 0.25)
 process_mode = 2
 visible = false
 position = Vector2(-439, -214)
-scale = Vector2(1.5, 1.5)
 
 [node name="Death Barrier" type="Area2D" parent="."]
 position = Vector2(549, 650)
@@ -92,6 +91,7 @@ visible = false
 [connection signal="santa_seen" from="Children3" to="." method="_on_children_santa_seen"]
 [connection signal="level_completed" from="Sleigh" to="." method="_on_sleigh_level_completed"]
 [connection signal="died" from="Santa" to="." method="_on_santa_died"]
+[connection signal="powerup_unpause" from="Santa" to="." method="powerup_unpause"]
 [connection signal="game_unpaused" from="Pause Menu" to="." method="_on_pause_menu_game_unpaused"]
 [connection signal="body_entered" from="Death Barrier" to="." method="_on_death_barrier_body_entered"]
 [connection signal="body_entered" from="Death Barrier" to="Death Barrier" method="_on_body_entered"]

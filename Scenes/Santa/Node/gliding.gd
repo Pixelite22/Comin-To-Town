@@ -1,31 +1,29 @@
 extends PlayerState
 
 func enter(prev_state: String, data := {}): #When state is entered
-	player.hasGlided = true
-	print(self.name + " State Entered from ", prev_state)
+	player.hasGlided = true #set the hasGlided flag on the player script to true
 	#player.sprite.play(self.name) #run the animation that shares the name with the state
-	player.sparkleSprite.play("Active")
-	player.sparkleSprite.show()
+	player.sparkleSprite.play("Active") #Play the sparkle effect to indicate gliding
+	player.sparkleSprite.show() #Unhide the sparkle effect
 
 func physics_update(_delta): #Every physics frame/tick check for these conditions
-#	player.velocity.y += player.gravity * _delta
-#	player.move_and_slide()
-	
-	if player.is_on_floor():
+	if player.is_on_floor(): #if player is on the floor
 		if (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")) and not (Input.is_action_pressed("Left") and Input.is_action_pressed("Right")):
-			state_ended.emit(WALKING)
-		else:
-			state_ended.emit(IDLE)
-		stop_sparkles()
+			#and is trying to walk left or right
+			state_ended.emit(WALKING) #transition to the walking state
+		else: #Otherwise
+			state_ended.emit(IDLE) #Transition to the idle state
+		stop_sparkles() #and call the stop sparkling function
 	
-	if not player.is_on_floor():
-		if not Input.is_action_pressed("Jump"):
-			state_ended.emit(FALLING)
-			stop_sparkles()
-		if player.velocity.y < 0 and player.jump_ctr > 0 and Input.is_action_just_pressed("Jump"):
-			state_ended.emit(JUMPING)
-			stop_sparkles()
+	if not player.is_on_floor(): #If player is in the air
+		if not Input.is_action_pressed("Jump"): #and isn't pressing the jump button
+			state_ended.emit(FALLING) #transition to the falling state
+			stop_sparkles() #and call stop sparkles
+			#The following code might be why we lose a jump when having a triple jump and a glide active
+		if player.velocity.y < 0 and player.jump_ctr > 0 and Input.is_action_just_pressed("Jump"): #and the player is trying to jump
+			state_ended.emit(JUMPING) #transition to the falling state
+			stop_sparkles() #and call stop sparkles
 
 func stop_sparkles():
-	player.sparkleSprite.play("Inactive")
-	player.sparkleSprite.hide()
+	player.sparkleSprite.play("Inactive") #Play the inactive animation
+	player.sparkleSprite.hide() #Hide the animation

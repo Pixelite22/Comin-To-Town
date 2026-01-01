@@ -203,7 +203,7 @@ move = NodePath("Movement")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_fc4nu")
-animation = &"Picking self up"
+animation = &"Walking"
 
 [node name="Collision Handling" type="Area2D" parent="."]
 
