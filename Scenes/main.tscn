@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://t28jpqsprpun"]
+[gd_scene load_steps=16 format=3 uid="uid://t28jpqsprpun"]
 
 [ext_resource type="Script" uid="uid://cnlcp3jmdlfjf" path="res://Scenes/main.gd" id="1_4rhp3"]
 [ext_resource type="PackedScene" uid="uid://bf6git0qbcgim" path="res://Scenes/Maps/test_map_2.tscn" id="2_fdnlq"]
@@ -13,6 +13,12 @@
 [ext_resource type="PackedScene" uid="uid://bqdtdeiu6xsmu" path="res://Scenes/Screens/pause_menu.tscn" id="10_d1ilt"]
 [ext_resource type="Script" uid="uid://bqje4226ernhu" path="res://Scenes/background_music.gd" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://cr6m6iu3fdy8k" path="res://Scenes/Maps/Map Parts/fire.tscn" id="13_fdnlq"]
+
+[sub_resource type="Curve2D" id="Curve2D_fdnlq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 196, 384, 0, 0, 0, 0, 464, 384)
+}
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ccry"]
 size = Vector2(2571, 31)
@@ -39,21 +45,45 @@ position = Vector2(1520, 356)
 [node name="Fire" parent="." instance=ExtResource("13_fdnlq")]
 position = Vector2(909, 748)
 
-[node name="Children" parent="." instance=ExtResource("4_feddk")]
-position = Vector2(1131, 859)
-
-[node name="Children2" parent="." instance=ExtResource("4_feddk")]
-position = Vector2(448, 599)
-
-[node name="Children3" parent="." instance=ExtResource("4_feddk")]
-position = Vector2(1364, 358)
-
 [node name="Sleigh" parent="." instance=ExtResource("5_6iyac")]
 position = Vector2(269, 82)
 
 [node name="Tree" parent="." instance=ExtResource("3_4rhp3")]
 position = Vector2(1593, 633)
 scale = Vector2(0.5, 0.5)
+
+[node name="Pathing" type="Path2D" parent="."]
+position = Vector2(909, 477)
+curve = SubResource("Curve2D_fdnlq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Pathing"]
+position = Vector2(196, 384)
+loop = false
+
+[node name="Children" parent="Pathing/PathFollow2D" instance=ExtResource("4_feddk")]
+position = Vector2(26, -2)
+
+[node name="Pathing2" type="Path2D" parent="."]
+position = Vector2(1168, -25)
+curve = SubResource("Curve2D_fdnlq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Pathing2"]
+position = Vector2(196, 384)
+loop = false
+
+[node name="Children2" parent="Pathing2/PathFollow2D" instance=ExtResource("4_feddk")]
+position = Vector2(-916, 240)
+
+[node name="Pathing3" type="Path2D" parent="."]
+position = Vector2(223, 216)
+curve = SubResource("Curve2D_fdnlq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Pathing3"]
+position = Vector2(196, 384)
+loop = false
+
+[node name="Children3" parent="Pathing3/PathFollow2D" instance=ExtResource("4_feddk")]
+position = Vector2(945, -242)
 
 [node name="Santa" parent="." instance=ExtResource("2_feddk")]
 position = Vector2(567, 52)
@@ -86,10 +116,10 @@ visible = false
 [connection signal="game_paused" from="." to="Santa" method="_on_main_game_paused"]
 [connection signal="game_paused" from="." to="Pause Menu" method="_on_main_game_paused"]
 [connection signal="body_entered" from="Fire" to="." method="_on_fire_body_entered"]
-[connection signal="santa_seen" from="Children" to="." method="_on_children_santa_seen"]
-[connection signal="santa_seen" from="Children2" to="." method="_on_children_santa_seen"]
-[connection signal="santa_seen" from="Children3" to="." method="_on_children_santa_seen"]
 [connection signal="level_completed" from="Sleigh" to="." method="_on_sleigh_level_completed"]
+[connection signal="santa_seen" from="Pathing/PathFollow2D/Children" to="." method="_on_children_santa_seen"]
+[connection signal="santa_seen" from="Pathing2/PathFollow2D/Children2" to="." method="_on_children_santa_seen"]
+[connection signal="santa_seen" from="Pathing3/PathFollow2D/Children3" to="." method="_on_children_santa_seen"]
 [connection signal="died" from="Santa" to="." method="_on_santa_died"]
 [connection signal="powerup_unpause" from="Santa" to="." method="powerup_unpause"]
 [connection signal="game_unpaused" from="Pause Menu" to="." method="_on_pause_menu_game_unpaused"]

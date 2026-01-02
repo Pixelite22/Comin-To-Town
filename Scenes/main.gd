@@ -3,7 +3,6 @@ extends Node2D
 signal game_paused
 
 @onready var Santa := $Santa
-@onready var children := $Children
 @onready var tree := $Tree
 @onready var debug := $"Santa/Debug Info"
 @onready var game_over_screen := $"Santa/Game Over Screen"
@@ -11,11 +10,25 @@ signal game_paused
 @onready var main_menu := $"Main Menu"
 #@onready var EBus := $"../Event Bus"
 @onready var level_complete := $"Santa/Level Beat Screen Placeholder"
+@onready var path1 = $Pathing
+@onready var path2 = $Pathing2
+@onready var path3 = $Pathing3
+@onready var path_follow1 = $Pathing/PathFollow2D
+@onready var path_follow2 = $Pathing2/PathFollow2D
+@onready var path_follow3 = $Pathing3/PathFollow2D
+@onready var child1 = $Children
+@onready var child2 = $Children2
+@onready var child3 = $Children3
+@onready var children := [] 
+@onready var pathing := []
+@onready var path_following := []
 
 var pause_menu_enabled := false
 var pausable := true
 
 var snowball_scene := preload("res://Scenes/items/snowball.tscn")
+
+var direction := 1
 
 func _ready() -> void: #on loadin of the game
 	if not main_menu.is_visible_in_tree(): #if the main menu can't be seen
@@ -31,16 +44,53 @@ func _ready() -> void: #on loadin of the game
 #	SignalBus.connect("powerup_chosen", powerup_unpause)
 	SignalBus.connect("threw_snowball", snowball_thrown)
 	SignalBus.connect("retry_requested", restart)
+	
+	array_assignment()
+
+func array_assignment():
+	for child_node in get_children():
+		if child_node is Path2D:
+			pathing.append(child_node)
+			for follow in child_node.get_children():
+				if follow is PathFollow2D:
+					path_following.append(follow)
+					for kid in follow.get_children():
+						if kid is CharacterBody2D and kid.is_in_group("Enemies"):
+							children.append(kid)
+	
+	print(children)
+	print(path_following)
+	print(pathing)
 
 
 func _process(delta: float) -> void: #every frame
 	#Display a debug info on the top right of the screen.  We will eventually remove or comment out this text
-	debug.text = "Debug Info: \nSeen By Child: " + str(children.see_santa) + "\nReached Tree: " + str(tree.tree_reached) + "\nCurrent Santa State: " + str(Santa.state_machine.state.name) + "\nSanta's Health: " + str(Santa.health) + "\nJump Counter: " + str(Santa.jump_ctr) + "\nGifts Held: " + str(Santa.gifts_held) + "\n Power-Up's left: " + str(Santa.powerup_choices_editable.size())
+	#debug.text = "Debug Info: \nSeen By Child: " + str(children.see_santa) + "\nReached Tree: " + str(tree.tree_reached) + "\nCurrent Santa State: " + str(Santa.state_machine.state.name) + "\nSanta's Health: " + str(Santa.health) + "\nJump Counter: " + str(Santa.jump_ctr) + "\nGifts Held: " + str(Santa.gifts_held) + "\n Power-Up's left: " + str(Santa.powerup_choices_editable.size())
 	
 	#If the player is trying to pause the game
 	if Input.is_action_pressed("Pause") and not pause_menu_enabled and pausable:
 		game_paused.emit() #emit the pause signal
 		pause_menu_enabled == true #and mark the pause menu enabled flag to true
+	
+	#if children.size() == path_following.size():
+	#	for child in range(children.size()):
+	#		children[child].position = path_following[child].position
+	
+	if children.size() == path_following.size():
+		for i in range(path_following.size()):
+			if not children[i].stun:
+				path_following[i].progress_ratio += direction * delta * 0.1
+				
+				if path_following[i].progress_ratio >= 1.0:
+					children[i].Sprite.flip_h = false
+					path_following[i].progress_ratio = 1.0
+					direction = -1
+				elif path_following[i].progress_ratio <= 0.0:
+					children[i].Sprite.flip_h = true
+					path_following[i].progress_ratio = 0.0
+					direction = 1
+			else:
+				pass
 
 func _on_game_paused() -> void: #Function called when game is paused
 	pause_menu.show() #show the pause menu
