@@ -218,11 +218,8 @@ polygon = PackedVector2Array(4, 10, 91, 55, 91, -48, 3, -7)
 
 [node name="Movement" parent="." instance=ExtResource("3_pjnr8")]
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="Body Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_wefrq")
 
 [connection signal="body_entered" from="Collision Handling" to="." method="_on_collision_handling_body_entered"]
 [connection signal="body_exited" from="Collision Handling" to="." method="_on_collision_handling_body_exited"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
