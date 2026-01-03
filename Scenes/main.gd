@@ -70,7 +70,7 @@ func _process(delta: float) -> void: #every frame
 	#If the player is trying to pause the game
 	if Input.is_action_pressed("Pause") and not pause_menu_enabled and pausable:
 		game_paused.emit() #emit the pause signal
-		pause_menu_enabled == true #and mark the pause menu enabled flag to true
+		pause_menu_enabled = true #and mark the pause menu enabled flag to true
 	
 	#if children.size() == path_following.size():
 	#	for child in range(children.size()):
@@ -79,16 +79,14 @@ func _process(delta: float) -> void: #every frame
 	if children.size() == path_following.size():
 		for i in range(path_following.size()):
 			if not children[i].stun:
-				path_following[i].progress_ratio += direction * delta * 0.1
+				path_following[i].progress_ratio += children[i].direction * delta * 0.1
 				
 				if path_following[i].progress_ratio >= 1.0:
-					children[i].Sprite.flip_h = false
 					path_following[i].progress_ratio = 1.0
-					direction = -1
+					children[i].direction_flip()
 				elif path_following[i].progress_ratio <= 0.0:
-					children[i].Sprite.flip_h = true
 					path_following[i].progress_ratio = 0.0
-					direction = 1
+					children[i].direction_flip()
 			else:
 				pass
 
