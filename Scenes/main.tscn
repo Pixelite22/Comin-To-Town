@@ -53,7 +53,7 @@ position = Vector2(1593, 633)
 scale = Vector2(0.5, 0.5)
 
 [node name="Pathing" type="Path2D" parent="."]
-position = Vector2(909, 477)
+position = Vector2(906, 477)
 curve = SubResource("Curve2D_fdnlq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Pathing"]
@@ -61,29 +61,26 @@ position = Vector2(196, 384)
 loop = false
 
 [node name="Children" parent="Pathing/PathFollow2D" instance=ExtResource("4_feddk")]
-position = Vector2(26, -2)
 
 [node name="Pathing2" type="Path2D" parent="."]
-position = Vector2(1168, -25)
+position = Vector2(1150, -25)
 curve = SubResource("Curve2D_fdnlq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Pathing2"]
 position = Vector2(196, 384)
 loop = false
 
-[node name="Children2" parent="Pathing2/PathFollow2D" instance=ExtResource("4_feddk")]
-position = Vector2(-916, 240)
+[node name="Children3" parent="Pathing2/PathFollow2D" instance=ExtResource("4_feddk")]
 
 [node name="Pathing3" type="Path2D" parent="."]
-position = Vector2(223, 216)
+position = Vector2(218, 216)
 curve = SubResource("Curve2D_fdnlq")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Pathing3"]
 position = Vector2(196, 384)
 loop = false
 
-[node name="Children3" parent="Pathing3/PathFollow2D" instance=ExtResource("4_feddk")]
-position = Vector2(945, -242)
+[node name="Children2" parent="Pathing3/PathFollow2D" instance=ExtResource("4_feddk")]
 
 [node name="Santa" parent="." instance=ExtResource("2_feddk")]
 position = Vector2(567, 52)
@@ -118,8 +115,8 @@ visible = false
 [connection signal="body_entered" from="Fire" to="." method="_on_fire_body_entered"]
 [connection signal="level_completed" from="Sleigh" to="." method="_on_sleigh_level_completed"]
 [connection signal="santa_seen" from="Pathing/PathFollow2D/Children" to="." method="_on_children_santa_seen"]
-[connection signal="santa_seen" from="Pathing2/PathFollow2D/Children2" to="." method="_on_children_santa_seen"]
-[connection signal="santa_seen" from="Pathing3/PathFollow2D/Children3" to="." method="_on_children_santa_seen"]
+[connection signal="santa_seen" from="Pathing2/PathFollow2D/Children3" to="." method="_on_children_santa_seen"]
+[connection signal="santa_seen" from="Pathing3/PathFollow2D/Children2" to="." method="_on_children_santa_seen"]
 [connection signal="died" from="Santa" to="." method="_on_santa_died"]
 [connection signal="powerup_unpause" from="Santa" to="." method="powerup_unpause"]
 [connection signal="game_unpaused" from="Pause Menu" to="." method="_on_pause_menu_game_unpaused"]

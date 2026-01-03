@@ -22,6 +22,7 @@ signal santa_seen
 var stun := false
 var directflag := 1.0 #flag for chosing a direction 
 var see_santa : bool = false
+var direction := 1
 
 func _ready() -> void: #on ready
 	SignalBus.snowball_hit.connect(stunned)
@@ -33,6 +34,12 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide() #The mystical magical move_and_slide
 
+func direction_flip():
+	direction *= -1
+	if Sprite.flip_h == true:
+		Sprite.flip_h = false
+	elif Sprite.flip_h == false:
+		Sprite.flip_h = true
 
 func _on_collision_handling_body_entered(body: Node2D) -> void: #if child collides with another 2d body
 	if body.is_in_group("Player"): #if the body is in the player group (the player)
