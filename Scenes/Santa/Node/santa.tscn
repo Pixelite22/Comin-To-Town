@@ -841,6 +841,7 @@ scale = Vector2(4, 4)
 enabled = false
 
 [node name="Debug Info" type="Label" parent="."]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0

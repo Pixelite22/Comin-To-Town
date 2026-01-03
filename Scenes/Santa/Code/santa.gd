@@ -127,15 +127,15 @@ func death_handling(): #handles death
 
 func _on_main_game_paused() -> void: #when the game is paused
 	camera.enabled = false #disable the camera 
-	debug.hide() #hide the debug menu 
+	#debug.hide() #hide the debug menu 
 
 func game_start_resume(): #when the resume button is pressed during the game_start
 	camera.enabled = true #enable the player camera
 	
 	state_reset()
 	
-	if not debug.is_visible_in_tree(): #if the debug menu isn't visible
-		debug.show() #show it
+	#if not debug.is_visible_in_tree(): #if the debug menu isn't visible
+	#	debug.show() #show it
 
 func powerup_menu_call(): #powerup menu call
 	power_up_menu.random_choice(powerup_choices_editable) #call the random choice function in the power up menu

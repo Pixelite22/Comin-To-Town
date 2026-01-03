@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 
 func direction_flip():
 	direction *= -1
+	Collision_Handling.scale.x *= -1
 	if Sprite.flip_h == true:
 		Sprite.flip_h = false
 	elif Sprite.flip_h == false:
