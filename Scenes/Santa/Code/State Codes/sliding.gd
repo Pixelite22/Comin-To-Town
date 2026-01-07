@@ -27,9 +27,6 @@ func transfer_state_slide():
 	elif player.is_on_floor(): 
 		state_ended.emit(IDLE) #enter the idle state
 
-func physics_update(_delta): #Every physics frame/tick check for these conditions
-	pass
-
 func exit(): #On exiting the state
 	player.collision.scale.y *= 2 #Regrow the collision
 	player.sprite.offset.y = 0 #reset the sprites offset

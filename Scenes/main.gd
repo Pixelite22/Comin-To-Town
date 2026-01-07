@@ -19,6 +19,7 @@ signal game_paused
 @onready var child1 = $Children
 @onready var child2 = $Children2
 @onready var child3 = $Children3
+@onready var fire = $Fire
 @onready var children := [] 
 @onready var pathing := []
 @onready var path_following := []
@@ -117,8 +118,13 @@ func _on_sleigh_level_completed() -> void: #When Santa touches the slegih to com
 	#In the future this will hopefully trigger a cutscene to take the player to the next level but for now
 	level_complete.show() #show the level complete text
 
-func _on_fire_body_entered(body: CharacterBody2D) -> void: #When Santa touches the fire in anyway
-	Santa.damage(true, 2) #Call the damage function from the santa script to deal two damage to santa
+func _on_fire_body_entered(body: Node2D) -> void: #When Santa touches the fire in anyway
+	if body == Santa:
+		Santa.damage(true, 2) #Call the damage function from the santa script to deal two damage to santa
+	elif body.is_in_group("Extinguishers"):
+		fire.extinguish()
+	else:
+		pass
 
 func powerup_pause(): #connected in ready and called when the cookie collected signal is activated
 	get_tree().paused = true #Pause the game to allow for choosing of powerup safely

@@ -190,7 +190,7 @@ animations = [{
 radius = 18.0
 height = 44.0
 
-[node name="Fire" type="Area2D"]
+[node name="Fire" type="Area2D" groups=["Fire"]]
 script = ExtResource("1_byjn4")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

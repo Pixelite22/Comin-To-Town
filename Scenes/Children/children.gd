@@ -34,16 +34,17 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide() #The mystical magical move_and_slide
 
-func direction_flip():
-	direction *= -1
-	Collision_Handling.scale.x *= -1
-	if Sprite.flip_h == true:
-		Sprite.flip_h = false
-	elif Sprite.flip_h == false:
-		Sprite.flip_h = true
+#This functino handles any and all logic for flipping the kids, collision and all
+func direction_flip(): 
+	direction *= -1 #Multiply the direction by -1 to flip what ever the direction is between positive and negative
+	Collision_Handling.scale.x *= -1 #Flip the scale of the collision handling in the same way, by changing the scale on the x-axis to a negative
+	if Sprite.flip_h == true: #if the sprite has been flipped on the horizontal
+		Sprite.flip_h = false #Unflip it
+	elif Sprite.flip_h == false: #if the sprite has not been flipped on the horizontal
+		Sprite.flip_h = true #Flip it
 
 func _on_collision_handling_body_entered(body: Node2D) -> void: #if child collides with another 2d body
-	if body.is_in_group("Player"): #if the body is in the player group (the player)
+	if body.is_in_group("Player") and not body.current_invis: #if the body is in the player group (the player)
 		see_santa = true #Set see_santa to true for the debug menu
 		SignalBus.santa_seen.emit() #emit the santa_seen signal from the SignalBus (Something I didn't even really know was possible)
 

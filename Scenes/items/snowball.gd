@@ -8,6 +8,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void: #if the snowball enters a collision for an area_body_2d
-	if body.is_in_group("Enemies"): #if the collision belongs to a node in the enemies group
-		body.stunned() #stun the enemy
+	if not body.is_in_group("Player"):
+		if body.is_in_group("Enemies"): #if the collision belongs to a node in the enemies group
+			body.stunned() #stun the enemy
+		
 		queue_free() #Despawn the snowball
