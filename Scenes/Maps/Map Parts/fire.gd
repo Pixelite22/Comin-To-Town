@@ -4,3 +4,8 @@ extends Area2D
 
 func _ready() -> void: #On ready
 	sprite.play("Fire") #play fire animation
+	SignalBus.connect("snowball_hit", extinguish)
+
+func extinguish():
+	print("Extinguished Reached")
+	queue_free()

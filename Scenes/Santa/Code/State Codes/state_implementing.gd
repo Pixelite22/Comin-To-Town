@@ -18,8 +18,10 @@ func _ready() -> void:
 	player = owner as santa #make sure the owner is a santa node
 	assert(player != null, "Owner must be a santa node") #and if it isn't, sput out an error telling us to make it one
 
+#function to disable a feature if needed, gravity specifically may be disabled when gliding?
 func disable_feature(feature):
 	print("disable_feature reached")
+	#Disables the features as needed by removing the child from the tree
 	if feature == input:
 		player.remove_child(player.inpnode)
 	elif feature == gravity:
@@ -28,8 +30,10 @@ func disable_feature(feature):
 		print("Trying to disable movement")
 		player.remove_child(player.movenode)
 
+#reenables the features removed
 func reenable_feature(feature):
 	print("reenable_feature reached")
+	#Enables features as needed by adding the child back into the tree
 	if feature == input:
 		player.add_child(player.inpnode)
 	elif feature == gravity:

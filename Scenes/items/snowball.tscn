@@ -46,7 +46,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mntje"]
 radius = 33.9559
 
-[node name="Snowball" type="AnimatableBody2D"]
+[node name="Snowball" type="AnimatableBody2D" groups=["Extinguishers"]]
 script = ExtResource("1_bmk8f")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

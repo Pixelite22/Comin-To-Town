@@ -7,3 +7,7 @@ class_name attacks
 func snowball(body, direction, want_to_shoot, able): 
 	if able and want_to_shoot: #if the character has the able flag and want's to shoot
 		SignalBus.threw_snowball.emit(direction) #emit the signal from the signal bus
+
+func invisibility(body, want_to_turn, able):
+	if able and want_to_turn:
+		SignalBus.turn_invis.emit()

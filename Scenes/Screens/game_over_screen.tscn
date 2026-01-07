@@ -114,5 +114,5 @@ offset_right = 27.0
 offset_bottom = 70.0
 text = "Retry?"
 
-[connection signal="pressed" from="Retry" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_button_pressed"]

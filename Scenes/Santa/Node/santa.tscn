@@ -100,7 +100,7 @@
 [ext_resource type="Script" uid="uid://dqpjktj81g4do" path="res://Scenes/Santa/Code/State Codes/jumping.gd" id="94_tcjk5"]
 [ext_resource type="Script" uid="uid://bhbg6j3lsd4tr" path="res://Scenes/Santa/Code/State Codes/dead.gd" id="95_p08h2"]
 [ext_resource type="PackedScene" uid="uid://c5xdl1i4py1ja" path="res://Scenes/Screens/game_over_screen.tscn" id="98_tcjk5"]
-[ext_resource type="Script" uid="uid://brcxem1o4pqne" path="res://Scenes/Santa/Node/gliding.gd" id="99_n3bu3"]
+[ext_resource type="Script" uid="uid://brcxem1o4pqne" path="res://Scenes/Santa/Code/State Codes/gliding.gd" id="99_n3bu3"]
 [ext_resource type="PackedScene" uid="uid://jqhrb85ywvuf" path="res://Scenes/Santa/Node/features/player_ui.tscn" id="101_n3bu3"]
 [ext_resource type="PackedScene" uid="uid://otfjdmrqtc5p" path="res://Scenes/Screens/level_beat_screen_placeholder.tscn" id="101_q12q4"]
 [ext_resource type="PackedScene" uid="uid://ccd63slqqj4uc" path="res://Scenes/Screens/powerup_menu.tscn" id="103_rnoll"]

@@ -30,8 +30,10 @@ var hasGlided := false
 @export var double_jump := false
 @export var triple_jump := false
 @export var snowball := false
-@export var powerup_choices = ["Glide", "Extra Jump", "Extra Jump", "Snowball"]
+@export var invisibility := false
+@export var powerup_choices = ["Glide", "Extra Jump", "Extra Jump", "Snowball", "Invisibility"]
 var powerup_choices_editable
+var current_invis := false
 
 #Nodes
 @onready var sprite := $Sprite
@@ -54,6 +56,7 @@ func _ready() -> void: #When the node enters the game
 	SignalBus.connect("play_button_pressed", game_start_resume)
 	SignalBus.connect("hit_death_barrier", death_handling)
 	SignalBus.connect("cookie_collected", powerup_menu_call)
+	SignalBus.connect("turn_invis", turn_invisible)
 	
 	healthbarinit() #initialize and set up health bar in the healthbarinit func
 	powerup_choices_editable = powerup_choices.duplicate() #And duplicate the powerup_choices into powerup_choices_editable
@@ -66,6 +69,7 @@ func _physics_process(_delta: float) -> void: #every physics frame
 	move.handleJump(self, inp.jump()) #run jump function to check fo jump attempts
 	
 	atk.snowball(self, direction(), inp.shoot(), snowball) #run snowball function to check for when the player tries using a snowball
+	atk.invisibility(self, inp.invis(), invisibility)
 	
 	if is_on_floor(): #if the player is on the floor
 		jump_ctr = jump_max #set the jump_ctr to whatever the jump_max value is at any given time
@@ -153,6 +157,9 @@ func _on_powerup_menu_powerup_chosen(powerup: Variant, powerup_not_chosen) -> vo
 	elif powerup == "Snowball":
 		if not snowball: # if the snowball flag isn't chosen
 			snowball = true # Set it to true
+	elif powerup == "Invisibility":
+		if not invisibility: # if the snowball flag isn't chosen
+			invisibility = true # Set it to true
 	else: #Or if nothing isn't chosen
 		pass #Pass through the function
 	
@@ -171,4 +178,12 @@ func state_reset():
 	if is_on_floor(): #if the player is on the floor
 		state_machine.state_transition("Idle") #Set state to idle
 	#note: We shouldn't need one for being in the air as, they will stay in the air, meaning almost any of those states are still fair
+
+func turn_invisible():
+	current_invis = true
+	sprite.hide()
 	
+	await get_tree().create_timer(3.0).timeout
+	
+	current_invis = false
+	sprite.show()
